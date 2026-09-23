@@ -1,24 +1,20 @@
-# Trendat AI
+# Trendat AI — Arabic Glass Website
 
-Premium AI portfolio website for Trendat AI.
+This is the new RTL Arabic glassmorphism website for Trendat AI.
 
-## Structure
+## Folder structure
 
 - `index.html` — main website
-- `css/style.css` — visual design
-- `js/main.js` — interactions and animations
-- `assets/images/` — portfolio images
-- `assets/videos/` — video previews
-- `assets/projects/` — project-specific assets
-
-## Local preview
-
-Open `index.html` in a browser, or use a simple local server.
-
-## GitHub Pages
-
-This repository is designed to work with GitHub Pages. Set the Pages source to the `main` branch and `/ (root)`.
+- `css/style.css` — design and responsive layout
+- `js/script.js` — navigation and small interactions
+- `assets/images/` — put your AI images here
+- `assets/videos/` — optional; large videos are better hosted on YouTube or another video host
 
 ## Before publishing
 
-Replace the placeholder email in `index.html` with your real contact email and replace the visual placeholders with your own work.
+1. Replace the placeholder hero visual with the real Trendat AI character/logo if desired.
+2. Replace the portfolio placeholder cards with your real project thumbnails.
+3. Replace the YouTube `#` link in `index.html` with your real channel URL.
+4. Replace the email address if you want a public contact email.
+
+Then commit and push with GitHub Desktop.
