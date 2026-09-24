@@ -9,7 +9,7 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- IBM Plex Sans (Matching Arabic & English Typography) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -40,39 +40,36 @@
   </script>
 
   <style>
-    body {
-      background-color: #0B0F17;
-      color: #E2E8F0;
-    }
+    body { background-color: #0B0F17; color: #E2E8F0; }
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
 <body class="selection:bg-theme-cyan selection:text-black min-h-screen flex flex-col justify-between">
 
-  <!-- 1. Header / Navigation Bar -->
+  <!-- 1. Header / Navbar with Dedicated URLs -->
   <header class="sticky top-0 z-40 bg-[#0B0F17]/95 backdrop-blur-md border-b border-theme-border">
     <div class="max-w-7xl mx-auto px-5 h-16 flex items-center justify-between gap-4">
       
-      <!-- Brand Logo -->
-      <a href="#" class="flex items-center gap-2.5 shrink-0">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-2.5 shrink-0">
         <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-theme-cyan to-theme-violet flex items-center justify-center text-black font-black text-sm shadow">
           T
         </div>
         <span class="font-bold text-base text-white tracking-wide">Trendat<span class="text-theme-cyan">AI</span></span>
       </a>
 
-      <!-- Desktop Navigation Menu (Switches dynamically with Language Toggle) -->
+      <!-- Dedicated Page Navigation Links -->
       <nav class="hidden lg:flex items-center gap-6 text-[13px] font-medium text-slate-300">
-        <a href="#portfolio" data-i18n="nav-portfolio" class="hover:text-theme-cyan transition duration-150">Portfolio</a>
-        <a href="#articles" data-i18n="nav-articles" class="hover:text-theme-cyan transition duration-150">Articles</a>
-        <a href="#courses" data-i18n="nav-courses" class="hover:text-theme-cyan transition duration-150">Courses</a>
-        <a href="#tools" data-i18n="nav-tools" class="hover:text-theme-cyan transition duration-150">AI Tools</a>
-        <a href="#prompts" data-i18n="nav-prompts" class="hover:text-theme-cyan transition duration-150">Master Prompts</a>
-        <a href="#tips" data-i18n="nav-tips" class="hover:text-theme-cyan transition duration-150">Tips & Tricks</a>
+        <a href="portfolio.html" data-i18n="nav-portfolio" class="hover:text-theme-cyan transition duration-150">Portfolio</a>
+        <a href="articles.html" data-i18n="nav-articles" class="hover:text-theme-cyan transition duration-150">Articles</a>
+        <a href="courses.html" data-i18n="nav-courses" class="hover:text-theme-cyan transition duration-150">Courses</a>
+        <a href="tools.html" data-i18n="nav-tools" class="hover:text-theme-cyan transition duration-150">AI Tools</a>
+        <a href="prompts.html" data-i18n="nav-prompts" class="hover:text-theme-cyan transition duration-150">Master Prompts</a>
+        <a href="tips.html" data-i18n="nav-tips" class="hover:text-theme-cyan transition duration-150">Tips & Tricks</a>
       </nav>
 
-      <!-- Language Switcher Toggle -->
+      <!-- Language Switcher -->
       <div class="flex items-center gap-3">
         <button onclick="toggleLanguage()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-theme-border text-xs font-semibold text-white transition">
           <i data-lucide="globe" class="w-3.5 h-3.5 text-theme-cyan"></i>
@@ -81,23 +78,21 @@
       </div>
     </div>
 
-    <!-- Mobile Scrollable Navigation Bar -->
+    <!-- Mobile Scroll Bar -->
     <div class="lg:hidden flex items-center gap-5 px-5 py-2 overflow-x-auto border-t border-theme-border text-xs font-medium text-slate-300 no-scrollbar whitespace-nowrap">
-      <a href="#portfolio" data-i18n="nav-portfolio" class="hover:text-theme-cyan">Portfolio</a>
-      <a href="#articles" data-i18n="nav-articles" class="hover:text-theme-cyan">Articles</a>
-      <a href="#courses" data-i18n="nav-courses" class="hover:text-theme-cyan">Courses</a>
-      <a href="#tools" data-i18n="nav-tools" class="hover:text-theme-cyan">AI Tools</a>
-      <a href="#prompts" data-i18n="nav-prompts" class="hover:text-theme-cyan">Master Prompts</a>
-      <a href="#tips" data-i18n="nav-tips" class="hover:text-theme-cyan">Tips & Tricks</a>
+      <a href="portfolio.html" data-i18n="nav-portfolio" class="hover:text-theme-cyan">Portfolio</a>
+      <a href="articles.html" data-i18n="nav-articles" class="hover:text-theme-cyan">Articles</a>
+      <a href="courses.html" data-i18n="nav-courses" class="hover:text-theme-cyan">Courses</a>
+      <a href="tools.html" data-i18n="nav-tools" class="hover:text-theme-cyan">AI Tools</a>
+      <a href="prompts.html" data-i18n="nav-prompts" class="hover:text-theme-cyan">Master Prompts</a>
+      <a href="tips.html" data-i18n="nav-tips" class="hover:text-theme-cyan">Tips & Tricks</a>
     </div>
   </header>
 
-  <!-- 2. Main Content Container -->
+  <!-- 2. Main Content -->
   <main class="max-w-7xl mx-auto px-5 py-8 w-full flex-1">
 
-    <!-- ========================================== -->
-    <!-- Featured Highlights Carousel with Click-to-Read -->
-    <!-- ========================================== -->
+    <!-- Featured Highlights Carousel with Dedicated Article Links -->
     <section class="mb-14">
       <div class="flex items-center justify-between mb-4 pb-2 border-b border-theme-border">
         <div class="flex items-center gap-2">
@@ -105,22 +100,21 @@
           <h2 class="text-sm sm:text-base font-bold text-white tracking-wide" data-i18n="featured-title">Featured Highlights</h2>
         </div>
 
-        <!-- Left / Right Navigation Arrows -->
         <div class="flex items-center gap-2">
-          <button onclick="slideCarousel(-1)" class="w-8 h-8 rounded-lg bg-theme-card border border-theme-border hover:bg-theme-hover hover:border-theme-cyan text-slate-300 hover:text-white flex items-center justify-center transition shadow" aria-label="Previous Slide">
+          <button onclick="slideCarousel(-1)" class="w-8 h-8 rounded-lg bg-theme-card border border-theme-border hover:bg-theme-hover hover:border-theme-cyan text-slate-300 hover:text-white flex items-center justify-center transition shadow" aria-label="Previous">
             <i data-lucide="chevron-left" class="w-4 h-4"></i>
           </button>
-          <button onclick="slideCarousel(1)" class="w-8 h-8 rounded-lg bg-theme-card border border-theme-border hover:bg-theme-hover hover:border-theme-cyan text-slate-300 hover:text-white flex items-center justify-center transition shadow" aria-label="Next Slide">
+          <button onclick="slideCarousel(1)" class="w-8 h-8 rounded-lg bg-theme-card border border-theme-border hover:bg-theme-hover hover:border-theme-cyan text-slate-300 hover:text-white flex items-center justify-center transition shadow" aria-label="Next">
             <i data-lucide="chevron-right" class="w-4 h-4"></i>
           </button>
         </div>
       </div>
 
-      <!-- Carousel Track -->
+      <!-- Slider Track -->
       <div id="featuredSlider" class="flex gap-4 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory py-1">
         
-        <!-- Slide 1 (Clickable) -->
-        <div onclick="openFeaturedModal(1)" class="snap-start shrink-0 w-[290px] sm:w-[350px] rounded-xl border border-theme-border bg-theme-card overflow-hidden group hover:border-theme-cyan/50 transition duration-300 cursor-pointer">
+        <!-- Slide 1 -> Dedicated URL: articles/ai-filmmaking.html -->
+        <a href="articles/ai-filmmaking.html" class="snap-start shrink-0 w-[290px] sm:w-[350px] rounded-xl border border-theme-border bg-theme-card overflow-hidden group hover:border-theme-cyan/50 transition duration-300 block">
           <div class="aspect-[16/9] w-full overflow-hidden relative">
             <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=700&q=80" alt="Video AI" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
             <span class="absolute top-2.5 left-2.5 bg-black/75 backdrop-blur-md text-theme-cyan text-[11px] font-bold px-2 py-0.5 rounded border border-theme-cyan/30">Video Generation</span>
@@ -137,10 +131,10 @@
               <span class="text-theme-cyan font-medium group-hover:underline">Read Article →</span>
             </div>
           </div>
-        </div>
+        </a>
 
-        <!-- Slide 2 (Clickable) -->
-        <div onclick="openFeaturedModal(2)" class="snap-start shrink-0 w-[290px] sm:w-[350px] rounded-xl border border-theme-border bg-theme-card overflow-hidden group hover:border-theme-violet/50 transition duration-300 cursor-pointer">
+        <!-- Slide 2 -> Dedicated URL: articles/token-costs.html -->
+        <a href="articles/token-costs.html" class="snap-start shrink-0 w-[290px] sm:w-[350px] rounded-xl border border-theme-border bg-theme-card overflow-hidden group hover:border-theme-violet/50 transition duration-300 block">
           <div class="aspect-[16/9] w-full overflow-hidden relative">
             <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=700&q=80" alt="Models" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
             <span class="absolute top-2.5 left-2.5 bg-black/75 backdrop-blur-md text-purple-300 text-[11px] font-bold px-2 py-0.5 rounded border border-purple-500/30">LLMs & Cost</span>
@@ -157,10 +151,10 @@
               <span class="text-purple-400 font-medium group-hover:underline">Read Article →</span>
             </div>
           </div>
-        </div>
+        </a>
 
-        <!-- Slide 3 (Clickable) -->
-        <div onclick="openFeaturedModal(3)" class="snap-start shrink-0 w-[290px] sm:w-[350px] rounded-xl border border-theme-border bg-theme-card overflow-hidden group hover:border-emerald-400/50 transition duration-300 cursor-pointer">
+        <!-- Slide 3 -> Dedicated URL: articles/cinematic-prompts.html -->
+        <a href="articles/cinematic-prompts.html" class="snap-start shrink-0 w-[290px] sm:w-[350px] rounded-xl border border-theme-border bg-theme-card overflow-hidden group hover:border-emerald-400/50 transition duration-300 block">
           <div class="aspect-[16/9] w-full overflow-hidden relative">
             <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=700&q=80" alt="Prompts" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
             <span class="absolute top-2.5 left-2.5 bg-black/75 backdrop-blur-md text-emerald-300 text-[11px] font-bold px-2 py-0.5 rounded border border-emerald-500/30">Prompt Engineering</span>
@@ -177,10 +171,10 @@
               <span class="text-emerald-400 font-medium group-hover:underline">Read Article →</span>
             </div>
           </div>
-        </div>
+        </a>
 
-        <!-- Slide 4 (Clickable) -->
-        <div onclick="openFeaturedModal(4)" class="snap-start shrink-0 w-[290px] sm:w-[350px] rounded-xl border border-theme-border bg-theme-card overflow-hidden group hover:border-cyan-400/50 transition duration-300 cursor-pointer">
+        <!-- Slide 4 -> Dedicated URL: articles/autonomous-studios.html -->
+        <a href="articles/autonomous-studios.html" class="snap-start shrink-0 w-[290px] sm:w-[350px] rounded-xl border border-theme-border bg-theme-card overflow-hidden group hover:border-cyan-400/50 transition duration-300 block">
           <div class="aspect-[16/9] w-full overflow-hidden relative">
             <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=700&q=80" alt="Agents" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
             <span class="absolute top-2.5 left-2.5 bg-black/75 backdrop-blur-md text-blue-300 text-[11px] font-bold px-2 py-0.5 rounded border border-blue-500/30">Autonomous Agents</span>
@@ -197,24 +191,19 @@
               <span class="text-blue-300 font-medium group-hover:underline">Read Article →</span>
             </div>
           </div>
-        </div>
+        </a>
 
       </div>
     </section>
 
-    <!-- ========================================== -->
-    <!-- 1. Portfolio: AI Video Showcase -->
-    <!-- ========================================== -->
-    <section id="portfolio" class="mb-14">
+    <!-- Homepage Preview Sections -->
+    <section class="mb-14">
       <div class="flex items-center justify-between mb-6 pb-2 border-b border-theme-border">
-        <div>
-          <h2 class="text-base font-bold text-white tracking-wide" data-i18n="sec-portfolio">Portfolio — Featured AI Videos</h2>
-        </div>
-        <span class="text-xs text-theme-cyan border border-theme-border px-2.5 py-1 rounded bg-theme-card font-mono">4K UHD</span>
+        <h2 class="text-base font-bold text-white tracking-wide" data-i18n="sec-portfolio">Portfolio Preview</h2>
+        <a href="portfolio.html" class="text-xs text-theme-cyan hover:underline font-medium">View All Videos →</a>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-        <!-- Video 1 -->
         <div class="rounded-xl border border-theme-border bg-theme-card overflow-hidden group hover:border-theme-cyan transition">
           <div class="relative aspect-video bg-black cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
             <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-85 group-hover:opacity-100" alt="Video">
@@ -231,7 +220,6 @@
           </div>
         </div>
 
-        <!-- Video 2 -->
         <div class="rounded-xl border border-theme-border bg-theme-card overflow-hidden group hover:border-theme-cyan transition">
           <div class="relative aspect-video bg-black cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
             <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-85 group-hover:opacity-100" alt="Video">
@@ -248,7 +236,6 @@
           </div>
         </div>
 
-        <!-- Video 3 -->
         <div class="rounded-xl border border-theme-border bg-theme-card overflow-hidden group hover:border-theme-cyan transition">
           <div class="relative aspect-video bg-black cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
             <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-85 group-hover:opacity-100" alt="Video">
@@ -267,12 +254,11 @@
       </div>
     </section>
 
-    <!-- ========================================== -->
-    <!-- 2. AI Tools Directory -->
-    <!-- ========================================== -->
-    <section id="tools" class="mb-14">
-      <div class="mb-6 pb-2 border-b border-theme-border">
-        <h2 class="text-base font-bold text-white tracking-wide" data-i18n="sec-tools">AI Tools — Curated Directory</h2>
+    <!-- AI Tools Section -->
+    <section class="mb-14">
+      <div class="flex items-center justify-between mb-6 pb-2 border-b border-theme-border">
+        <h2 class="text-base font-bold text-white tracking-wide" data-i18n="sec-tools">AI Tools Directory</h2>
+        <a href="tools.html" class="text-xs text-theme-cyan hover:underline font-medium">Browse All Tools →</a>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -310,117 +296,9 @@
       </div>
     </section>
 
-    <!-- ========================================== -->
-    <!-- 3. Master Prompts & Tips -->
-    <!-- ========================================== -->
-    <section id="prompts" class="mb-14">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div>
-          <div class="mb-4 pb-2 border-b border-theme-border">
-            <h2 class="text-base font-bold text-white tracking-wide" data-i18n="sec-prompts">Master Prompts — Ready to Copy</h2>
-          </div>
-          <div class="space-y-3">
-            <div class="p-4 rounded-xl border border-theme-border bg-theme-card">
-              <span class="text-[11px] font-bold text-theme-cyan">Cinematic Wide Shot</span>
-              <p class="text-xs font-mono text-slate-300 bg-black/60 p-3 rounded mt-2 border border-theme-border select-all" dir="ltr">
-                "Cinematic wide establishing shot, futuristic city street at midnight, neon reflections in rain puddles, 35mm anamorphic lens, 8k --ar 16:9"
-              </p>
-            </div>
-            <div class="p-4 rounded-xl border border-theme-border bg-theme-card">
-              <span class="text-[11px] font-bold text-purple-400">Character Portrait</span>
-              <p class="text-xs font-mono text-slate-300 bg-black/60 p-3 rounded mt-2 border border-theme-border select-all" dir="ltr">
-                "Close-up emotional portrait of an ancient warrior, realistic weathered skin, cinematic rim lighting, 85mm lens --v 6.0"
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div id="tips">
-          <div class="mb-4 pb-2 border-b border-theme-border">
-            <h2 class="text-base font-bold text-white tracking-wide" data-i18n="sec-tips">Tips & Tricks — Workflow Hacks</h2>
-          </div>
-          <div class="space-y-3 text-xs">
-            <div class="p-4 rounded-xl border border-theme-border bg-theme-card">
-              <h3 class="font-bold text-white mb-1" data-i18n="tip-1-title">Image-to-Video Workflow</h3>
-              <p class="text-slate-400 leading-relaxed" data-i18n="tip-1-desc">
-                Never generate video directly from text; craft a high-detail base image in Midjourney first, then animate it in Runway for 10x fidelity.
-              </p>
-            </div>
-            <div class="p-4 rounded-xl border border-theme-border bg-theme-card">
-              <h3 class="font-bold text-white mb-1" data-i18n="tip-2-title">Precise Camera Values</h3>
-              <p class="text-slate-400 leading-relaxed" data-i18n="tip-2-desc">
-                Always set numeric values (e.g. Pan Right +2) rather than descriptive words to easily stitch consecutive cuts in post-production.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================== -->
-    <!-- 4. Articles & Editorial Analysis -->
-    <!-- ========================================== -->
-    <section id="articles" class="mb-14">
-      <div class="mb-6 pb-2 border-b border-theme-border">
-        <h2 class="text-base font-bold text-white tracking-wide" data-i18n="sec-articles">Articles — Analysis & Insights</h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-        <article class="p-5 rounded-xl border border-theme-border bg-theme-card hover:border-theme-border/80 transition flex flex-col justify-between">
-          <div>
-            <span class="text-[11px] text-theme-cyan font-semibold">Analysis</span>
-            <h3 class="text-sm font-bold text-white mt-1 mb-2" data-i18n="art-1-title">The Neural Graphics Revolution in Video Production</h3>
-            <p class="text-xs text-slate-400 leading-relaxed mb-4" data-i18n="art-1-desc">
-              How generative frame synthesis is replacing classical 3D ray-tracing render pipelines.
-            </p>
-          </div>
-          <span class="text-[11px] text-slate-400">TrendatAI Editorial · 4 min read</span>
-        </article>
-
-        <article class="p-5 rounded-xl border border-theme-border bg-theme-card hover:border-theme-border/80 transition flex flex-col justify-between">
-          <div>
-            <span class="text-[11px] text-purple-400 font-semibold">Workflow</span>
-            <h3 class="text-sm font-bold text-white mt-1 mb-2" data-i18n="art-2-title">AI Agents: Building an Automated Video Studio</h3>
-            <p class="text-xs text-slate-400 leading-relaxed mb-4" data-i18n="art-2-desc">
-              How autonomous models plan, generate assets, and synchronize voiceover without manual work.
-            </p>
-          </div>
-          <span class="text-[11px] text-slate-400">TrendatAI Editorial · 5 min read</span>
-        </article>
-      </div>
-    </section>
-
-    <!-- 5. Courses Masterclasses Section -->
-    <section id="courses" class="mb-8">
-      <div class="p-6 rounded-xl border border-theme-border bg-gradient-to-r from-theme-card via-[#16202E] to-theme-card text-center max-w-2xl mx-auto">
-        <span class="text-xs font-bold text-theme-cyan uppercase tracking-wider" data-i18n="course-badge">Courses & Masterclasses</span>
-        <h3 class="text-base font-bold text-white mt-1 mb-2" data-i18n="course-title">Masterclasses & Training Programs</h3>
-        <p class="text-xs text-slate-300 leading-relaxed mb-4" data-i18n="course-desc">
-          Intensive training for creators learning cinematic AI filmmaking and advanced prompt engineering.
-        </p>
-        <span class="inline-block px-3 py-1 rounded bg-black/60 border border-theme-border text-[11px] text-slate-300" data-i18n="course-status">
-          Coming Soon
-        </span>
-      </div>
-    </section>
-
   </main>
 
-  <!-- ========================================== -->
-  <!-- Modals (Article Reader & Video Player) -->
-  <!-- ========================================== -->
-
-  <!-- Featured Article Reader Modal -->
-  <div id="featuredModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="bg-theme-card max-w-3xl w-full max-h-[90vh] overflow-y-auto rounded-2xl border border-theme-border shadow-2xl relative">
-      <button onclick="closeFeaturedModal()" class="sticky top-4 right-4 z-10 w-9 h-9 rounded-full bg-black/70 hover:bg-black text-white flex items-center justify-center border border-white/10 transition ml-auto" aria-label="Close">
-        <i data-lucide="x" class="w-5 h-5"></i>
-      </button>
-      <div id="featuredModalContent" class="p-6 sm:p-8 pt-0"></div>
-    </div>
-  </div>
-
-  <!-- Inline Video Player Modal -->
+  <!-- Video Modal Player -->
   <div id="videoModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4">
     <div class="relative w-full max-w-4xl bg-black rounded-xl overflow-hidden border border-theme-border shadow-2xl">
       <button onclick="closeVideoModal()" class="absolute top-4 left-4 z-10 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition" aria-label="Close">
@@ -440,20 +318,16 @@
         <span>— © 2026 Hosted on GitHub Pages.</span>
       </div>
       <div class="flex items-center gap-5">
-        <a href="#portfolio" class="hover:text-white transition">Portfolio</a>
-        <a href="#articles" class="hover:text-white transition">Articles</a>
-        <a href="#tools" class="hover:text-white transition">AI Tools</a>
+        <a href="portfolio.html" class="hover:text-white transition">Portfolio</a>
+        <a href="articles.html" class="hover:text-white transition">Articles</a>
+        <a href="tools.html" class="hover:text-white transition">AI Tools</a>
       </div>
     </div>
   </footer>
 
-  <!-- ========================================== -->
-  <!-- Core JavaScript Functionality -->
-  <!-- ========================================== -->
   <script>
     lucide.createIcons();
 
-    // 1. Carousel Slider Controller
     function slideCarousel(direction) {
       const slider = document.getElementById('featuredSlider');
       const isRtl = document.documentElement.dir === 'rtl';
@@ -461,7 +335,6 @@
       slider.scrollBy({ left: amount, behavior: 'smooth' });
     }
 
-    // 2. Video Modal Controller
     function openVideoModal(url) {
       const modal = document.getElementById('videoModal');
       const iframe = document.getElementById('videoIframe');
@@ -478,129 +351,6 @@
       modal.classList.remove('flex');
     }
 
-    // 3. Featured Story Full Text Data (Bilingual: EN & AR)
-    const featuredStories = {
-      1: {
-        category: "Video Generation",
-        readTime: "5 min read",
-        image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&q=80",
-        en: {
-          title: "How to Create Complete Cinematic Short Films with Generative AI",
-          body: `
-            <p class="mb-4">Generative AI has fundamentally disrupted film pre-production and rendering pipelines. By unifying foundational image generation models with physics-aware video engines like Runway Gen-3 and Kling AI, independent digital artists can now achieve visual fidelity that previously required dedicated visual effects studios.</p>
-            <h4 class="text-base font-bold text-white mb-2">1. Visual World-Building & Character Consistency</h4>
-            <p class="mb-4">The secret to cinematic coherence starts with fixed character seeds and style references in Midjourney. Rather than generating random frames, lock your lighting parameters (such as 35mm anamorphic lenses and volumetric rim lighting) before sending your frames into video engines.</p>
-            <h4 class="text-base font-bold text-white mb-2">2. Camera Choreography in Runway Gen-3</h4>
-            <p class="mb-4">Using the Motion Brush and precise numeric camera values (Pan Right +2, Tilt Down 1) prevents visual warping and ensures your consecutive cuts stitch together seamlessly during final editing in DaVinci Resolve or Premiere Pro.</p>
-          `
-        },
-        ar: {
-          title: "كيف تصنع فيلمك السينمائي الأول كاملاً بالذكاء الاصطناعي؟",
-          body: `
-            <p class="mb-4">أحدث الذكاء الاصطناعي التوليدي ثورة حقيقية في خطوط إنتاج وتصوير الأفلام. من خلال الدمج بين نماذج توليد الصور فائقة الواقعية ومحركات تحريك الفيديو مثل Runway Gen-3 و Kling AI، أصبح بإمكان صناع الأفلام المستقلين إنتاج مشاهد سينمائية بجودة استوديوهات هوليوود.</p>
-            <h4 class="text-base font-bold text-white mb-2">1. بناء العالم البصري وتناسق ملامح الشخصيات</h4>
-            <p class="mb-4">يبدأ السر دائماً بتوليد صور مرجعية محددة وثابتة في Midjourney، مع تحديد نوع العدسة والإضاءة (مثل 35mm Anamorphic) قبل نقل المشاهد إلى أدوات التحريك لضمان استقرار الملامح.</p>
-            <h4 class="text-base font-bold text-white mb-2">2. التحكم بحركة الكاميرا في Runway</h4>
-            <p class="mb-4">استخدام قيم دقيقة لحركة الكاميرا (مثل Pan Right +2) بدلاً من الوصف العشوائي يمنع تشوه الإطارات ويجعل عملية مونتاج المشاهد المتتابعة متناسقة للغاية.</p>
-          `
-        }
-      },
-      2: {
-        category: "LLMs & Cost",
-        readTime: "4 min read",
-        image: "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=1200&q=80",
-        en: {
-          title: "The Rapid Decline in Token Costs and What It Means for Media Creators",
-          body: `
-            <p class="mb-4">Inference costs across frontier foundation models have dropped by over 70% in recent cycles. Techniques like speculative decoding and neural distillation deliver greater cognitive performance at a fraction of the computational footprint.</p>
-            <p class="mb-4">For creative directors and scriptwriters, this democratizes high-volume generative exploration. You can now prompt agents to draft 50 treatments of a scene, iterate storyboards, or translate dialogue into multiple languages simultaneously without worrying about cloud token overhead.</p>
-          `
-        },
-        ar: {
-          title: "انخفاض تكلفة معالجة الرموز: ثورة حقيقية للمطورين وصناع المحتوى",
-          body: `
-            <p class="mb-4">شهد قطاع الذكاء الاصطناعي انخفاضاً ملحوظاً في تكلفة الاستهلاك السحابي لنماذج المعالجة بنسبة تجاوزت 70%، بفضل تقنيات التقطير وضغط المعماريات العصبية.</p>
-            <p class="mb-4">هذا الانخفاض يمنح صانع المحتوى حرية إجراء عشرات المحاولات والتعديلات التوليدية للمشهد الواحد للوصول للنتيجة البصرية المطلقة دون قلق من التكاليف المادية الباهظة.</p>
-          `
-        }
-      },
-      3: {
-        category: "Prompt Engineering",
-        readTime: "3 min read",
-        image: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=1200&q=80",
-        en: {
-          title: "Mastering 35mm and Anamorphic Lens Prompts for Cinematic Realism",
-          body: `
-            <p class="mb-4">Writing prompts for visual generative models is less about adjectives and more about speaking the technical language of a director of photography (DP).</p>
-            <p class="mb-4">Specific keywords such as 'shallow depth of field', 'anamorphic streaks', and 'volumetric rim light' bias the model's latent weights away from plastic textures and introduce genuine cinematic physics, realistic lens distortion, and optical grain.</p>
-          `
-        },
-        ar: {
-          title: "أسرار صياغة أوامر الإضاءة السينمائية (35mm و Anamorphic)",
-          body: `
-            <p class="mb-4">هندسة أوامر نماذج التوليد ليست مجرد كتابة نصوص وصفية، بل هي استخدام المصطلحات التقنية المعتمدة لدى مديري التصوير السينمائي (Cinematographers).</p>
-            <p class="mb-4">المصطلحات المتخصصة مثل 'Anamorphic streaks' و '35mm Lens' تُجبر النموذج على تفادي المظهر الكرتوني أو البلاستيكي، وتمنح المشهد عمقاً وواقعية مطابقة تماماً للكاميرات السينمائية الحقيقية.</p>
-          `
-        }
-      },
-      4: {
-        category: "Autonomous Agents",
-        readTime: "6 min read",
-        image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&q=80",
-        en: {
-          title: "Building Autonomous Video Studios: From Script to Finished Cut",
-          body: `
-            <p class="mb-4">Autonomous AI agents represent the leap from single-task utilities to end-to-end coordinated media production pipelines.</p>
-            <p class="mb-4">An agent can receive an initial brief, generate a shot list, dispatch prompts to Midjourney, forward outputs into Runway, synchronize voice tracks with ElevenLabs, and assemble the final sequence on an automated timeline.</p>
-          `
-        },
-        ar: {
-          title: "الوكلاء الأذكياء: كيف تبني نظاماً يكتب وينتج محتواك ذاتياً؟",
-          body: `
-            <p class="mb-4">يمثل وكلاء الذكاء الاصطناعي (AI Agents) النقلة الكبرى من أدوات الإجابة الفردية إلى خطوط الإنتاج المؤتمتة بالكامل في صناعة الفيديو.</p>
-            <p class="mb-4">يمكن للوكيل الذكي استلام فكرة مختصرة، وكتابة السيناريو، وتوليد المشاهد عبر Runway، وإضافة التعليق الصوتي عبر ElevenLabs، ودمجها في مونتاج متكامل دون أي تدخل يدوي.</p>
-          `
-        }
-      }
-    };
-
-    // 4. Modal Reader Controller
-    function openFeaturedModal(id) {
-      const story = featuredStories[id];
-      if (!story) return;
-
-      const lang = document.getElementById('htmlTag').getAttribute('lang') || 'en';
-      const content = story[lang] || story['en'];
-      const modal = document.getElementById('featuredModal');
-      const container = document.getElementById('featuredModalContent');
-
-      container.innerHTML = `
-        <div class="aspect-video w-full rounded-xl overflow-hidden mb-6 bg-black">
-          <img src="${story.image}" class="w-full h-full object-cover" alt="${content.title}" />
-        </div>
-        <div class="flex items-center gap-3 text-xs mb-3">
-          <span class="text-theme-cyan font-bold uppercase tracking-wider">${story.category}</span>
-          <span class="text-slate-500">•</span>
-          <span class="text-slate-400">${story.readTime}</span>
-        </div>
-        <h2 class="text-xl sm:text-2xl font-bold text-white leading-snug mb-4">${content.title}</h2>
-        <div class="text-slate-300 text-sm leading-relaxed border-t border-theme-border pt-4">
-          ${content.body}
-        </div>
-      `;
-
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-      lucide.createIcons();
-    }
-
-    function closeFeaturedModal() {
-      const modal = document.getElementById('featuredModal');
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-    }
-
-    // 5. Bilingual Dictionary and Toggle Functionality
     let currentLang = 'en';
 
     const translations = {
@@ -620,33 +370,18 @@
         'slide-3-desc': 'Keyword structures that eliminate plastic textures and simulate physical film cameras.',
         'slide-4-title': 'Building Autonomous Video Studios: From Script to Finished Cut',
         'slide-4-desc': 'How agentic workflows automate asset generation and voiceover synchronization.',
-        'sec-portfolio': 'Portfolio — Featured AI Videos',
+        'sec-portfolio': 'Portfolio Preview',
         'video-1-title': 'Neo-Tokyo Cyberpunk 2099',
         'video-1-desc': 'Fast camera motion with dynamic lighting and reflections.',
         'video-2-title': 'Deep Space Odyssey',
         'video-2-desc': 'Cinematic sci-fi sequences integrated with AI sound design.',
         'video-3-title': 'Ancient Chronicles',
         'video-3-desc': 'Realistic facial motion and historical character reenactment.',
-        'sec-tools': 'AI Tools — Curated Directory',
+        'sec-tools': 'AI Tools Directory',
         'tool-1-desc': 'The industry standard for cinematic AI video generation.',
         'tool-2-desc': 'Superior photorealistic image synthesis and art design.',
         'tool-3-desc': 'Lifelike emotional voice generation and multilingual dubbing.',
         'tool-4-desc': 'Full composition background scores matching video themes.',
-        'sec-prompts': 'Master Prompts — Ready to Copy',
-        'sec-tips': 'Tips & Tricks — Workflow Hacks',
-        'tip-1-title': 'Image-to-Video Workflow',
-        'tip-1-desc': 'Never generate video directly from text; craft a high-detail base image in Midjourney first, then animate it in Runway for 10x fidelity.',
-        'tip-2-title': 'Precise Camera Values',
-        'tip-2-desc': 'Always set numeric values (e.g. Pan Right +2) rather than descriptive words to easily stitch consecutive cuts in post-production.',
-        'sec-articles': 'Articles — Analysis & Insights',
-        'art-1-title': 'The Neural Graphics Revolution in Video Production',
-        'art-1-desc': 'How generative frame synthesis is replacing classical 3D ray-tracing render pipelines.',
-        'art-2-title': 'AI Agents: Building an Automated Video Studio',
-        'art-2-desc': 'How autonomous models plan, generate assets, and synchronize voiceover without manual work.',
-        'course-badge': 'Courses & Masterclasses',
-        'course-title': 'Masterclasses & Training Programs',
-        'course-desc': 'Intensive training for creators learning cinematic AI filmmaking and advanced prompt engineering.',
-        'course-status': 'Coming Soon',
         'lang-btn': 'العربية'
       },
       ar: {
@@ -665,33 +400,18 @@
         'slide-3-desc': 'كلمات مفتاحية تحول الصور التوليدية العادية إلى لقطات كأنها التقطت بكاميرا احترافية.',
         'slide-4-title': 'الوكلاء الأذكياء: كيف تبني نظاماً يكتب وينتج محتواك ذاتياً؟',
         'slide-4-desc': 'استكشاف خطوط الإنتاج الذاتية التي تدير مهام التوليد والمونتاج دون تدخل.',
-        'sec-portfolio': 'معرض الأعمال — فيديوهات سينمائية مختارة',
+        'sec-portfolio': 'معاينة معرض الأعمال',
         'video-1-title': 'مدينة السايبربانك 2099',
         'video-1-desc': 'محاكاة سينمائية فائقة السرعة مع إضاءة نيون ديناميكية.',
         'video-2-title': 'رحلة الفضاء السحيق',
         'video-2-desc': 'لقطات سينمائية مع تصميم مؤثرات صوتية مدمجة بالذكاء الاصطناعي.',
         'video-3-title': 'وثائقي الأساطير',
         'video-3-desc': 'إحياء ملامح الشخصيات التاريخية بحركات طبيعية متطابقة مع النص.',
-        'sec-tools': 'أدوات الـ AI — الدليل المختار',
+        'sec-tools': 'دليل أدوات الـ AI',
         'tool-1-desc': 'الأداة الرائدة في إخراج لقطات الفيديو السينمائية الفائقة.',
         'tool-2-desc': 'المحرك الأقوى لتوليد وتصميم الشخصيات والمشاهد الثابتة.',
         'tool-3-desc': 'توليد أصوات وتعليق صوتي سينمائي بمختلف اللهجات العربية.',
         'tool-4-desc': 'تأليف مقطوعات ومؤثرات صوتية خلفية تناسب سياق المشهد.',
-        'sec-prompts': 'الأوامر الاحترافية — جاهزة للنسخ',
-        'sec-tips': 'حيل ونصائح — تسريع الإنتاج',
-        'tip-1-title': 'مسار عمل Image-to-Video المتكامل',
-        'tip-1-desc': 'لا تولد الفيديو من النص مباشرة؛ قم بتوليد صورة متقنة في Midjourney أولاً ثم حركها في Runway لنتائج أفضل بعشر مرات.',
-        'tip-2-title': 'تحديد قيم الكاميرا بالأرقام',
-        'tip-2-desc': 'حدد سرعة وزاوية حركة الكاميرا برقم ثابت مثل (Pan Right +2) لكي يسهل عليك ربط المشاهد في المونتاج.',
-        'sec-articles': 'المقالات — تحليلات وتجارب',
-        'art-1-title': 'ثورة الرسوم العصبية في إنتاج الفيديو السينمائي',
-        'art-1-desc': 'كيف تقوم خوارزميات توليد الإطارات برسم المشاهد بديلاً عن محركات الرسوميات الكلاسيكية.',
-        'art-2-title': 'الوكلاء الأذكياء: بناء استوديو فيديو يدار تلقائياً',
-        'art-2-desc': 'خطوات ربط النماذج ببعضها لتوليد السيناريو والصور والمؤثرات الصوتية بنظام أتمتة كامل.',
-        'course-badge': 'الدورات والورش',
-        'course-title': 'الدورات والورش التخصصية',
-        'course-desc': 'ورش تدريبية تطبيقية لصناع المحتوى لتعلم أسرار الإخراج السينمائي بالـ AI من البداية للاحتراف.',
-        'course-status': 'قريباً',
         'lang-btn': 'English'
       }
     };
@@ -699,16 +419,13 @@
     function toggleLanguage() {
       currentLang = currentLang === 'en' ? 'ar' : 'en';
       const html = document.getElementById('htmlTag');
-      
       html.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
       html.setAttribute('lang', currentLang);
 
       const dict = translations[currentLang];
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (dict[key]) {
-          el.innerText = dict[key];
-        }
+        if (dict[key]) el.innerText = dict[key];
       });
 
       document.getElementById('langLabel').innerText = dict['lang-btn'];
