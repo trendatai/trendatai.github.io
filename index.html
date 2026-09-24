@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" class="scroll-smooth">
+<html lang="en" dir="ltr" id="htmlTag" class="scroll-smooth antialiased">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>تريندات الذكاء الاصطناعي | TrendatAI - استوديو وأدوات الـ AI</title>
-  <meta name="description" content="منصة TrendatAI لعرض أعمال وفيديوهات الذكاء الاصطناعي، أحدث الأدوات، والمقالات الحصرية." />
+  <title>TrendatAI | AI Media & Tools Portal</title>
+  <meta name="description" content="TrendatAI — Portfolio, AI Tools, Master Prompts, and Articles." />
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts: Readex Pro & Cairo -->
+  
+  <!-- خطوط متطابقة هندسياً (عربي وإنجليزي) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -20,17 +22,16 @@
       theme: {
         extend: {
           fontFamily: {
-            readex: ['"Readex Pro"', 'sans-serif'],
-            cairo: ['"Cairo"', 'sans-serif'],
+            sans: ['"IBM Plex Sans"', '"IBM Plex Sans Arabic"', 'sans-serif'],
           },
           colors: {
-            brand: {
-              bg: '#07090E',
-              card: 'rgba(17, 24, 39, 0.7)',
-              border: 'rgba(255, 255, 255, 0.08)',
-              cyan: '#00F0FF',
+            theme: {
+              bg: '#0B0F17',
+              card: '#121824',
+              border: '#1E293B',
+              hover: '#1B2436',
+              cyan: '#06B6D4',
               violet: '#8B5CF6',
-              purple: '#A855F7',
             }
           }
         }
@@ -40,284 +41,373 @@
 
   <style>
     body {
-      font-family: 'Readex Pro', sans-serif;
-      background-color: #07090E;
+      background-color: #0B0F17;
       color: #E2E8F0;
     }
-    .glow-cyan {
-      box-shadow: 0 0 35px -5px rgba(0, 240, 255, 0.35);
-    }
-    .glow-violet {
-      box-shadow: 0 0 35px -5px rgba(139, 92, 246, 0.35);
-    }
-    .text-gradient {
-      background: linear-gradient(135deg, #00F0FF 0%, #A855F7 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .glass {
-      background: rgba(15, 23, 42, 0.65);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body class="overflow-x-hidden selection:bg-brand-cyan selection:text-black">
+<body class="selection:bg-theme-cyan selection:text-black min-h-screen flex flex-col justify-between">
 
-  <!-- Background Ambient Lights -->
-  <div class="fixed top-0 -right-40 w-96 h-96 bg-brand-cyan/15 rounded-full blur-[140px] pointer-events-none -z-10"></div>
-  <div class="fixed top-1/2 -left-40 w-96 h-96 bg-brand-violet/15 rounded-full blur-[140px] pointer-events-none -z-10"></div>
-
-  <!-- Header / Navigation -->
-  <nav class="sticky top-0 z-50 glass border-b border-brand-border">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-3">
-        <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-brand-cyan to-brand-violet flex items-center justify-center text-black font-black text-xl shadow-lg glow-cyan">
+  <!-- 1. Header / Navbar -->
+  <header class="sticky top-0 z-50 bg-[#0B0F17]/95 backdrop-blur-md border-b border-theme-border">
+    <div class="max-w-7xl mx-auto px-5 h-16 flex items-center justify-between gap-4">
+      
+      <!-- اللوجو -->
+      <a href="#" class="flex items-center gap-2.5 shrink-0">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-theme-cyan to-theme-violet flex items-center justify-center text-black font-black text-sm shadow">
           T
         </div>
-        <div>
-          <span class="font-cairo font-black text-xl tracking-wide text-white">Trendat<span class="text-brand-cyan">AI</span></span>
-          <span class="block text-[10px] text-gray-400 font-medium tracking-widest uppercase">تريندات الذكاء الاصطناعي</span>
-        </div>
+        <span class="font-bold text-base text-white tracking-wide">Trendat<span class="text-theme-cyan">AI</span></span>
       </a>
 
-      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
-        <a href="#showcase" class="hover:text-brand-cyan transition">معرض الأعمال السينمائي</a>
-        <a href="#tools" class="hover:text-brand-cyan transition">أدوات الـ AI</a>
-        <a href="#articles" class="hover:text-brand-cyan transition">المقالات والدروس</a>
+      <!-- أزرار القائمة بالإنجليزية (تتغير تلقائياً عند ضغط زر اللغة) -->
+      <nav class="hidden lg:flex items-center gap-6 text-[13px] font-medium text-slate-300">
+        <a href="#portfolio" data-i18n="nav-portfolio" class="hover:text-theme-cyan transition duration-150">Portfolio</a>
+        <a href="#articles" data-i18n="nav-articles" class="hover:text-theme-cyan transition duration-150">Articles</a>
+        <a href="#courses" data-i18n="nav-courses" class="hover:text-theme-cyan transition duration-150">Courses</a>
+        <a href="#tools" data-i18n="nav-tools" class="hover:text-theme-cyan transition duration-150">AI Tools</a>
+        <a href="#prompts" data-i18n="nav-prompts" class="hover:text-theme-cyan transition duration-150">Master Prompts</a>
+        <a href="#tips" data-i18n="nav-tips" class="hover:text-theme-cyan transition duration-150">Tips & Tricks</a>
+      </nav>
+
+      <!-- زر التبديل بين العربية والإنجليزية -->
+      <div class="flex items-center gap-3">
+        <button onclick="toggleLanguage()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-theme-border text-xs font-semibold text-white transition">
+          <i data-lucide="globe" class="w-3.5 h-3.5 text-theme-cyan"></i>
+          <span id="langLabel">العربية</span>
+        </button>
       </div>
-
-      <a href="#showcase" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-brand-cyan to-brand-violet text-black font-semibold text-sm hover:opacity-90 transition glow-cyan">
-        <i data-lucide="play" class="w-4 h-4 fill-black"></i>
-        <span>استعرض الأعمال</span>
-      </a>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <header class="relative pt-24 pb-20 px-6 max-w-5xl mx-auto text-center">
-    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-brand-cyan mb-8">
-      <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-      <span>المستقبل يبدأ هنا | الجيل القادم من صناعة المحتوى</span>
     </div>
 
-    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-cairo font-black text-white leading-tight mb-6">
-      أصنع عوالم بصرية فائقة باستخدام <span class="text-gradient">الذكاء الاصطناعي</span>
-    </h1>
-
-    <p class="text-gray-400 text-lg sm:text-xl max-w-3xl mx-auto mb-10 leading-relaxed font-light">
-      مرحباً بك في <strong class="text-white">TrendatAI</strong>. مساحتي الاحترافية لعرض إبداعاتي في إخراج وإنتاج فيديوهات الـ AI، ومشاركة أفضل الأدوات الثورية والمقالات التخصصية.
-    </p>
-
-    <div class="flex flex-wrap justify-center gap-4">
-      <a href="#showcase" class="px-8 py-4 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-violet text-black font-bold text-base hover:scale-105 transition duration-300 glow-cyan flex items-center gap-3">
-        <i data-lucide="film" class="w-5 h-5"></i>
-        <span>مشاهدة فيديوهاتي (Showreel)</span>
-      </a>
-      <a href="#tools" class="px-8 py-4 rounded-xl glass hover:bg-white/10 text-white font-medium text-base transition duration-300 flex items-center gap-3">
-        <i data-lucide="cpu" class="w-5 h-5 text-brand-violet"></i>
-        <span>أفضل الأدوات</span>
-      </a>
+    <!-- شريط قائمة الهواتف -->
+    <div class="lg:hidden flex items-center gap-5 px-5 py-2 overflow-x-auto border-t border-theme-border text-xs font-medium text-slate-300 no-scrollbar whitespace-nowrap">
+      <a href="#portfolio" data-i18n="nav-portfolio" class="hover:text-theme-cyan">Portfolio</a>
+      <a href="#articles" data-i18n="nav-articles" class="hover:text-theme-cyan">Articles</a>
+      <a href="#courses" data-i18n="nav-courses" class="hover:text-theme-cyan">Courses</a>
+      <a href="#tools" data-i18n="nav-tools" class="hover:text-theme-cyan">AI Tools</a>
+      <a href="#prompts" data-i18n="nav-prompts" class="hover:text-theme-cyan">Master Prompts</a>
+      <a href="#tips" data-i18n="nav-tips" class="hover:text-theme-cyan">Tips & Tricks</a>
     </div>
   </header>
 
-  <!-- Showcase Section (الفيديوهات - الغرض الأساسي) -->
-  <section id="showcase" class="py-20 px-6 max-w-7xl mx-auto">
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-brand-border pb-6">
-      <div>
-        <span class="text-brand-cyan text-sm font-semibold tracking-wider uppercase">معرض الإبداع المرئي</span>
-        <h2 class="text-3xl sm:text-4xl font-cairo font-black text-white mt-1">أحدث الفيديوهات السينمائية</h2>
-      </div>
-      <p class="text-gray-400 text-sm max-w-md mt-4 md:mt-0">
-        أعمال تم إنتاجها وتوليدها وتعديلها بالكامل باستخدام أحدث نماذج توليد الفيديو مثل Gen-3, Kling, Midjourney.
-      </p>
-    </div>
+  <!-- 2. المحتوى الرئيسي يبدأ مباشرة بالسلايدر النظيف دون مقدمات طويلة -->
+  <main class="max-w-7xl mx-auto px-5 py-8 w-full flex-1">
 
-    <!-- Video Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      
-      <!-- Video Card 1 -->
-      <div class="glass rounded-2xl overflow-hidden border border-brand-border group hover:border-brand-cyan/50 transition duration-500">
-        <div class="relative aspect-video bg-gray-900 overflow-hidden cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80" alt="Cyber City 2099" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 opacity-80 group-hover:opacity-100" />
-          <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-            <div class="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center group-hover:scale-110 group-hover:bg-brand-cyan transition duration-300">
-              <i data-lucide="play" class="w-6 h-6 text-white group-hover:text-black fill-current ml-1"></i>
+    <!-- ========================================== -->
+    <!-- مستعرض المواضيع (السلايدر بالأسهم يميناً ويساراً) -->
+    <!-- ========================================== -->
+    <section class="mb-14">
+      <div class="flex items-center justify-between mb-4 pb-2 border-b border-theme-border">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-theme-cyan animate-pulse"></span>
+          <h2 class="text-sm sm:text-base font-bold text-white tracking-wide" data-i18n="featured-title">Featured Highlights</h2>
+        </div>
+
+        <!-- أسهم التنقل -->
+        <div class="flex items-center gap-2">
+          <button onclick="slideCarousel(-1)" class="w-8 h-8 rounded-lg bg-theme-card border border-theme-border hover:bg-theme-hover hover:border-theme-cyan text-slate-300 hover:text-white flex items-center justify-center transition shadow">
+            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+          </button>
+          <button onclick="slideCarousel(1)" class="w-8 h-8 rounded-lg bg-theme-card border border-theme-border hover:bg-theme-hover hover:border-theme-cyan text-slate-300 hover:text-white flex items-center justify-center transition shadow">
+            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- مسار البطاقات التفاعلي -->
+      <div id="featuredSlider" class="flex gap-4 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory py-1">
+        
+        <!-- كارت 1 -->
+        <div class="snap-start shrink-0 w-[290px] sm:w-[350px] rounded-xl border border-theme-border bg-theme-card overflow-hidden group hover:border-theme-cyan/50 transition duration-300">
+          <div class="aspect-[16/9] w-full overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=700&q=80" alt="Video AI" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+            <span class="absolute top-2.5 left-2.5 bg-black/75 backdrop-blur-md text-theme-cyan text-[11px] font-bold px-2 py-0.5 rounded border border-theme-cyan/30">Video Generation</span>
+          </div>
+          <div class="p-4">
+            <h3 class="text-sm font-bold text-white group-hover:text-theme-cyan transition leading-snug mb-2 line-clamp-2" data-i18n="slide-1-title">
+              How to Create Complete Cinematic Short Films with Generative AI
+            </h3>
+            <p class="text-xs text-slate-400 line-clamp-2 leading-relaxed mb-3" data-i18n="slide-1-desc">
+              Practical workflow connecting Midjourney assets with Runway Gen-3 camera controls.
+            </p>
+            <div class="text-[11px] text-slate-400 flex items-center justify-between border-t border-theme-border/60 pt-2.5">
+              <span>5 min read</span>
+              <span class="text-theme-cyan font-medium">Read More →</span>
             </div>
           </div>
-          <span class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-semibold bg-black/70 backdrop-blur-md text-brand-cyan border border-brand-cyan/30">Runway Gen-3</span>
         </div>
-        <div class="p-6">
-          <h3 class="text-xl font-cairo font-bold text-white mb-2">مدينة السايبربانك 2099</h3>
-          <p class="text-gray-400 text-sm mb-4 leading-relaxed">
-            محاكاة سينمائية لمدن المستقبل مع حركة كاميرا فائقة السرعة وتعديل إضاءات النيون بواسطة Runway & After Effects.
-          </p>
-          <div class="flex items-center justify-between text-xs text-gray-500">
-            <span>المدة: 0:45 دقيقة</span>
-            <span class="text-brand-violet font-medium">دقة 4K فائقة</span>
-          </div>
-        </div>
-      </div>
 
-      <!-- Video Card 2 -->
-      <div class="glass rounded-2xl overflow-hidden border border-brand-border group hover:border-brand-cyan/50 transition duration-500">
-        <div class="relative aspect-video bg-gray-900 overflow-hidden cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-          <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=800&q=80" alt="Cosmic Odyssey" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 opacity-80 group-hover:opacity-100" />
-          <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-            <div class="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center group-hover:scale-110 group-hover:bg-brand-cyan transition duration-300">
-              <i data-lucide="play" class="w-6 h-6 text-white group-hover:text-black fill-current ml-1"></i>
+        <!-- كارت 2 -->
+        <div class="snap-start shrink-0 w-[290px] sm:w-[350px] rounded-xl border border-theme-border bg-theme-card overflow-hidden group hover:border-theme-violet/50 transition duration-300">
+          <div class="aspect-[16/9] w-full overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=700&q=80" alt="Models" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+            <span class="absolute top-2.5 left-2.5 bg-black/75 backdrop-blur-md text-purple-300 text-[11px] font-bold px-2 py-0.5 rounded border border-purple-500/30">LLMs & Cost</span>
+          </div>
+          <div class="p-4">
+            <h3 class="text-sm font-bold text-white group-hover:text-purple-300 transition leading-snug mb-2 line-clamp-2" data-i18n="slide-2-title">
+              The Rapid Decline in Token Costs and What It Means for Media Creators
+            </h3>
+            <p class="text-xs text-slate-400 line-clamp-2 leading-relaxed mb-3" data-i18n="slide-2-desc">
+              Analysis on how distilled architectures enable unlimited production iterations.
+            </p>
+            <div class="text-[11px] text-slate-400 flex items-center justify-between border-t border-theme-border/60 pt-2.5">
+              <span>4 min read</span>
+              <span class="text-purple-400 font-medium">Read More →</span>
             </div>
           </div>
-          <span class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-semibold bg-black/70 backdrop-blur-md text-purple-400 border border-purple-500/30">Kling AI 1.5</span>
         </div>
-        <div class="p-6">
-          <h3 class="text-xl font-cairo font-bold text-white mb-2">رحلة الفضاء السحيق</h3>
-          <p class="text-gray-400 text-sm mb-4 leading-relaxed">
-            إعلان ترويجي سينمائي تم توليد شخصياته بواسطة Midjourney v6 وتحريك تفاصيل المشهد باستخدام Kling AI.
-          </p>
-          <div class="flex items-center justify-between text-xs text-gray-500">
-            <span>المدة: 1:12 دقيقة</span>
-            <span class="text-brand-violet font-medium">سرد صوتي AI</span>
-          </div>
-        </div>
-      </div>
 
-      <!-- Video Card 3 -->
-      <div class="glass rounded-2xl overflow-hidden border border-brand-border group hover:border-brand-cyan/50 transition duration-500">
-        <div class="relative aspect-video bg-gray-900 overflow-hidden cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
-          <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&q=80" alt="Warrior Chronicles" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 opacity-80 group-hover:opacity-100" />
-          <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-            <div class="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center group-hover:scale-110 group-hover:bg-brand-cyan transition duration-300">
-              <i data-lucide="play" class="w-6 h-6 text-white group-hover:text-black fill-current ml-1"></i>
+        <!-- كارت 3 -->
+        <div class="snap-start shrink-0 w-[290px] sm:w-[350px] rounded-xl border border-theme-border bg-theme-card overflow-hidden group hover:border-emerald-400/50 transition duration-300">
+          <div class="aspect-[16/9] w-full overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=700&q=80" alt="Prompts" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+            <span class="absolute top-2.5 left-2.5 bg-black/75 backdrop-blur-md text-emerald-300 text-[11px] font-bold px-2 py-0.5 rounded border border-emerald-500/30">Prompt Engineering</span>
+          </div>
+          <div class="p-4">
+            <h3 class="text-sm font-bold text-white group-hover:text-emerald-300 transition leading-snug mb-2 line-clamp-2" data-i18n="slide-3-title">
+              Mastering 35mm and Anamorphic Lens Prompts for Cinematic Realism
+            </h3>
+            <p class="text-xs text-slate-400 line-clamp-2 leading-relaxed mb-3" data-i18n="slide-3-desc">
+              Keyword structures that eliminate plastic textures and simulate physical film cameras.
+            </p>
+            <div class="text-[11px] text-slate-400 flex items-center justify-between border-t border-theme-border/60 pt-2.5">
+              <span>3 min read</span>
+              <span class="text-emerald-400 font-medium">Read More →</span>
             </div>
           </div>
-          <span class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-semibold bg-black/70 backdrop-blur-md text-emerald-400 border border-emerald-500/30">Luma Dream Machine</span>
         </div>
-        <div class="p-6">
-          <h3 class="text-xl font-cairo font-bold text-white mb-2">وثائقي الأساطير التاريخية</h3>
-          <p class="text-gray-400 text-sm mb-4 leading-relaxed">
-            إعادة إحياء الشخصيات التاريخية بملامح حية وحركات وجه مطابقة للواقع مع مؤثرات صوتية احترافية.
-          </p>
-          <div class="flex items-center justify-between text-xs text-gray-500">
-            <span>المدة: 0:58 دقيقة</span>
-            <span class="text-brand-violet font-medium">تحريك شفاه دقيق</span>
+
+        <!-- كارت 4 -->
+        <div class="snap-start shrink-0 w-[290px] sm:w-[350px] rounded-xl border border-theme-border bg-theme-card overflow-hidden group hover:border-cyan-400/50 transition duration-300">
+          <div class="aspect-[16/9] w-full overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=700&q=80" alt="Agents" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+            <span class="absolute top-2.5 left-2.5 bg-black/75 backdrop-blur-md text-blue-300 text-[11px] font-bold px-2 py-0.5 rounded border border-blue-500/30">Autonomous Agents</span>
+          </div>
+          <div class="p-4">
+            <h3 class="text-sm font-bold text-white group-hover:text-blue-300 transition leading-snug mb-2 line-clamp-2" data-i18n="slide-4-title">
+              Building Autonomous Video Studios: From Script to Finished Cut
+            </h3>
+            <p class="text-xs text-slate-400 line-clamp-2 leading-relaxed mb-3" data-i18n="slide-4-desc">
+              How agentic workflows automate asset generation and voiceover synchronization.
+            </p>
+            <div class="text-[11px] text-slate-400 flex items-center justify-between border-t border-theme-border/60 pt-2.5">
+              <span>6 min read</span>
+              <span class="text-blue-300 font-medium">Read More →</span>
+            </div>
           </div>
         </div>
+
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- AI Tools Section (دليل الأدوات) -->
-  <section id="tools" class="py-20 px-6 max-w-7xl mx-auto">
-    <div class="text-center max-w-2xl mx-auto mb-16">
-      <span class="text-brand-violet text-sm font-semibold tracking-wider uppercase">ترشيحات موثوقة</span>
-      <h2 class="text-3xl sm:text-4xl font-cairo font-black text-white mt-1">أدوات الذكاء الاصطناعي الأقوى</h2>
-      <p class="text-gray-400 text-sm mt-3">الأدوات التي أعتمد عليها يومياً لإنتاج الفيديوهات وتصميم المشاريع وتسهيل العمل.</p>
-    </div>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      
-      <!-- Tool 1 -->
-      <a href="https://runwayml.com" target="_blank" class="glass p-6 rounded-2xl border border-brand-border hover:border-brand-cyan transition group">
-        <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-cyan mb-4 group-hover:scale-110 transition">
-          <i data-lucide="video" class="w-6 h-6"></i>
-        </div>
-        <h4 class="text-lg font-cairo font-bold text-white mb-1">Runway Gen-3</h4>
-        <span class="text-xs text-brand-cyan mb-3 block">إنتاج وتحريك الفيديو</span>
-        <p class="text-gray-400 text-xs leading-relaxed">أقوى أداة لتوليد مقاطع فيديو سينمائية بجودة غير مسبوقة مع تحكم كامل بالكاميرا.</p>
-      </a>
-
-      <!-- Tool 2 -->
-      <a href="https://midjourney.com" target="_blank" class="glass p-6 rounded-2xl border border-brand-border hover:border-brand-violet transition group">
-        <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-violet mb-4 group-hover:scale-110 transition">
-          <i data-lucide="image" class="w-6 h-6"></i>
-        </div>
-        <h4 class="text-lg font-cairo font-bold text-white mb-1">Midjourney</h4>
-        <span class="text-xs text-brand-violet mb-3 block">توليد الصور الفنية</span>
-        <p class="text-gray-400 text-xs leading-relaxed">الرائد عالمياً في تخيل المشاهد والصور بواقعية مذهلة تستخدم كأساس للفيديوهات.</p>
-      </a>
-
-      <!-- Tool 3 -->
-      <a href="https://elevenlabs.io" target="_blank" class="glass p-6 rounded-2xl border border-brand-border hover:border-brand-cyan transition group">
-        <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-cyan mb-4 group-hover:scale-110 transition">
-          <i data-lucide="mic" class="w-6 h-6"></i>
-        </div>
-        <h4 class="text-lg font-cairo font-bold text-white mb-1">ElevenLabs</h4>
-        <span class="text-xs text-brand-cyan mb-3 block">التعليق الصوتي AI</span>
-        <p class="text-gray-400 text-xs leading-relaxed">أفضل منصة لتوليد أصوات بشرية بمشاعر دقيقة باللغة العربية ومختلف اللهجات.</p>
-      </a>
-
-      <!-- Tool 4 -->
-      <a href="https://suno.com" target="_blank" class="glass p-6 rounded-2xl border border-brand-border hover:border-brand-violet transition group">
-        <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-violet mb-4 group-hover:scale-110 transition">
-          <i data-lucide="music" class="w-6 h-6"></i>
-        </div>
-        <h4 class="text-lg font-cairo font-bold text-white mb-1">Suno AI</h4>
-        <span class="text-xs text-brand-violet mb-3 block">الموسيقى والمؤثرات</span>
-        <p class="text-gray-400 text-xs leading-relaxed">توليد مقطوعات وموسيقى تصويرية خلفية كاملة تناسب طابع الفيديوهات السينمائية.</p>
-      </a>
-
-    </div>
-  </section>
-
-  <!-- Articles / Insights Section (المقالات) -->
-  <section id="articles" class="py-20 px-6 max-w-7xl mx-auto border-t border-brand-border">
-    <div class="flex items-center justify-between mb-12">
-      <div>
-        <span class="text-brand-cyan text-sm font-semibold tracking-wider uppercase">المعرفة والدروس</span>
-        <h2 class="text-3xl font-cairo font-black text-white mt-1">مقالات ونصائح تهمك</h2>
-      </div>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <!-- Article 1 -->
-      <article class="glass p-8 rounded-3xl border border-brand-border hover:border-white/20 transition flex flex-col justify-between">
+    <!-- ========================================== -->
+    <!-- 1. Portfolio (فيديوهاتك) -->
+    <!-- ========================================== -->
+    <section id="portfolio" class="mb-14">
+      <div class="flex items-center justify-between mb-6 pb-2 border-b border-theme-border">
         <div>
-          <div class="flex items-center gap-3 text-xs text-brand-cyan mb-4">
-            <span class="px-3 py-1 rounded-full bg-brand-cyan/10">دليل شامل</span>
-            <span>5 دقائق قراءة</span>
-          </div>
-          <h3 class="text-2xl font-cairo font-bold text-white mb-3 hover:text-brand-cyan transition cursor-pointer">
-            كيف تصنع أول فيديو سينمائي متكامل بالـ AI من الصفر حتى النشر؟
-          </h3>
-          <p class="text-gray-400 text-sm leading-relaxed mb-6">
-            خطوة بخطوة: صياغة الـ Prompts، اختيار الأسلوب البصري في Midjourney، والتحريك السلس في Runway ثم الدمج الصوتي في المونتاج.
-          </p>
+          <h2 class="text-base font-bold text-white tracking-wide" data-i18n="sec-portfolio">Portfolio — Featured AI Videos</h2>
         </div>
-        <a href="#" class="inline-flex items-center gap-2 text-sm text-brand-cyan font-semibold hover:gap-3 transition">
-          <span>اقرأ المقال كاملاً</span>
-          <i data-lucide="arrow-left" class="w-4 h-4"></i>
-        </a>
-      </article>
+        <span class="text-xs text-theme-cyan border border-theme-border px-2.5 py-1 rounded bg-theme-card font-mono">4K UHD</span>
+      </div>
 
-      <!-- Article 2 -->
-      <article class="glass p-8 rounded-3xl border border-brand-border hover:border-white/20 transition flex flex-col justify-between">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="rounded-xl border border-theme-border bg-theme-card overflow-hidden group hover:border-theme-cyan transition">
+          <div class="relative aspect-video bg-black cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-85 group-hover:opacity-100" alt="Video">
+            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+              <div class="w-11 h-11 rounded-full bg-theme-cyan text-black flex items-center justify-center group-hover:scale-110 transition shadow">
+                <i data-lucide="play" class="w-5 h-5 fill-current ml-0.5"></i>
+              </div>
+            </div>
+            <span class="absolute top-2 right-2 bg-black/80 text-theme-cyan text-[10px] font-bold px-2 py-0.5 rounded">Runway Gen-3</span>
+          </div>
+          <div class="p-3.5">
+            <h3 class="text-sm font-bold text-white mb-1" data-i18n="video-1-title">Neo-Tokyo Cyberpunk 2099</h3>
+            <p class="text-xs text-slate-400" data-i18n="video-1-desc">Fast camera motion with dynamic lighting and reflections.</p>
+          </div>
+        </div>
+
+        <div class="rounded-xl border border-theme-border bg-theme-card overflow-hidden group hover:border-theme-cyan transition">
+          <div class="relative aspect-video bg-black cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+            <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-85 group-hover:opacity-100" alt="Video">
+            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+              <div class="w-11 h-11 rounded-full bg-theme-cyan text-black flex items-center justify-center group-hover:scale-110 transition shadow">
+                <i data-lucide="play" class="w-5 h-5 fill-current ml-0.5"></i>
+              </div>
+            </div>
+            <span class="absolute top-2 right-2 bg-black/80 text-purple-400 text-[10px] font-bold px-2 py-0.5 rounded">Kling AI</span>
+          </div>
+          <div class="p-3.5">
+            <h3 class="text-sm font-bold text-white mb-1" data-i18n="video-2-title">Deep Space Odyssey</h3>
+            <p class="text-xs text-slate-400" data-i18n="video-2-desc">Cinematic sci-fi sequences integrated with AI sound design.</p>
+          </div>
+        </div>
+
+        <div class="rounded-xl border border-theme-border bg-theme-card overflow-hidden group hover:border-theme-cyan transition">
+          <div class="relative aspect-video bg-black cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+            <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-85 group-hover:opacity-100" alt="Video">
+            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+              <div class="w-11 h-11 rounded-full bg-theme-cyan text-black flex items-center justify-center group-hover:scale-110 transition shadow">
+                <i data-lucide="play" class="w-5 h-5 fill-current ml-0.5"></i>
+              </div>
+            </div>
+            <span class="absolute top-2 right-2 bg-black/80 text-emerald-400 text-[10px] font-bold px-2 py-0.5 rounded">Luma Dream</span>
+          </div>
+          <div class="p-3.5">
+            <h3 class="text-sm font-bold text-white mb-1" data-i18n="video-3-title">Ancient Chronicles</h3>
+            <p class="text-xs text-slate-400" data-i18n="video-3-desc">Realistic facial motion and historical character reenactment.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 2. AI Tools Directory -->
+    <!-- ========================================== -->
+    <section id="tools" class="mb-14">
+      <div class="mb-6 pb-2 border-b border-theme-border">
+        <h2 class="text-base font-bold text-white tracking-wide" data-i18n="sec-tools">AI Tools — Curated Directory</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <a href="https://runwayml.com" target="_blank" class="p-4 rounded-xl border border-theme-border bg-theme-card hover:border-theme-cyan transition block group">
+          <div class="w-9 h-9 rounded-lg bg-theme-cyan/10 text-theme-cyan flex items-center justify-center mb-3">
+            <i data-lucide="video" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-sm font-bold text-white mb-1">Runway Gen-3</h3>
+          <p class="text-xs text-slate-400 leading-relaxed" data-i18n="tool-1-desc">The industry standard for cinematic AI video generation.</p>
+        </a>
+
+        <a href="https://midjourney.com" target="_blank" class="p-4 rounded-xl border border-theme-border bg-theme-card hover:border-purple-400 transition block group">
+          <div class="w-9 h-9 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center mb-3">
+            <i data-lucide="image" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-sm font-bold text-white mb-1">Midjourney v6</h3>
+          <p class="text-xs text-slate-400 leading-relaxed" data-i18n="tool-2-desc">Superior photorealistic image synthesis and art design.</p>
+        </a>
+
+        <a href="https://elevenlabs.io" target="_blank" class="p-4 rounded-xl border border-theme-border bg-theme-card hover:border-emerald-400 transition block group">
+          <div class="w-9 h-9 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-3">
+            <i data-lucide="mic" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-sm font-bold text-white mb-1">ElevenLabs</h3>
+          <p class="text-xs text-slate-400 leading-relaxed" data-i18n="tool-3-desc">Lifelike emotional voice generation and multilingual dubbing.</p>
+        </a>
+
+        <a href="https://suno.com" target="_blank" class="p-4 rounded-xl border border-theme-border bg-theme-card hover:border-blue-400 transition block group">
+          <div class="w-9 h-9 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center mb-3">
+            <i data-lucide="music" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-sm font-bold text-white mb-1">Suno AI</h3>
+          <p class="text-xs text-slate-400 leading-relaxed" data-i18n="tool-4-desc">Full composition background scores matching video themes.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 3. Master Prompts & Tips -->
+    <!-- ========================================== -->
+    <section id="prompts" class="mb-14">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div>
-          <div class="flex items-center gap-3 text-xs text-brand-violet mb-4">
-            <span class="px-3 py-1 rounded-full bg-brand-violet/10">مقارنة تقنية</span>
-            <span>4 دقائق قراءة</span>
+          <div class="mb-4 pb-2 border-b border-theme-border">
+            <h2 class="text-base font-bold text-white tracking-wide" data-i18n="sec-prompts">Master Prompts — Ready to Copy</h2>
           </div>
-          <h3 class="text-2xl font-cairo font-bold text-white mb-3 hover:text-brand-violet transition cursor-pointer">
-            مقارنة بين Runway Gen-3 و Kling AI: أيهما الأفضل لحركات الشخصيات؟
-          </h3>
-          <p class="text-gray-400 text-sm leading-relaxed mb-6">
-            تحليل دقيق لنقاط القوة والضعف في كل نموذج من حيث استقرار الوجوه، حركة الكاميرا، ودرجة الواقعية الفيزيائية.
-          </p>
+          <div class="space-y-3">
+            <div class="p-4 rounded-xl border border-theme-border bg-theme-card">
+              <span class="text-[11px] font-bold text-theme-cyan">Cinematic Wide Shot</span>
+              <p class="text-xs font-mono text-slate-300 bg-black/60 p-3 rounded mt-2 border border-theme-border select-all" dir="ltr">
+                "Cinematic wide establishing shot, futuristic city street at midnight, neon reflections in rain puddles, 35mm anamorphic lens, 8k --ar 16:9"
+              </p>
+            </div>
+            <div class="p-4 rounded-xl border border-theme-border bg-theme-card">
+              <span class="text-[11px] font-bold text-purple-400">Character Portrait</span>
+              <p class="text-xs font-mono text-slate-300 bg-black/60 p-3 rounded mt-2 border border-theme-border select-all" dir="ltr">
+                "Close-up emotional portrait of an ancient warrior, realistic weathered skin, cinematic rim lighting, 85mm lens --v 6.0"
+              </p>
+            </div>
+          </div>
         </div>
-        <a href="#" class="inline-flex items-center gap-2 text-sm text-brand-violet font-semibold hover:gap-3 transition">
-          <span>اقرأ المقال كاملاً</span>
-          <i data-lucide="arrow-left" class="w-4 h-4"></i>
-        </a>
-      </article>
-    </div>
-  </section>
 
-  <!-- Video Modal Popup -->
+        <div id="tips">
+          <div class="mb-4 pb-2 border-b border-theme-border">
+            <h2 class="text-base font-bold text-white tracking-wide" data-i18n="sec-tips">Tips & Tricks — Workflow Hacks</h2>
+          </div>
+          <div class="space-y-3 text-xs">
+            <div class="p-4 rounded-xl border border-theme-border bg-theme-card">
+              <h3 class="font-bold text-white mb-1" data-i18n="tip-1-title">Image-to-Video Workflow</h3>
+              <p class="text-slate-400 leading-relaxed" data-i18n="tip-1-desc">
+                Never generate video directly from text; craft a high-detail base image in Midjourney first, then animate it in Runway for 10x fidelity.
+              </p>
+            </div>
+            <div class="p-4 rounded-xl border border-theme-border bg-theme-card">
+              <h3 class="font-bold text-white mb-1" data-i18n="tip-2-title">Precise Camera Values</h3>
+              <p class="text-slate-400 leading-relaxed" data-i18n="tip-2-desc">
+                Always set numeric values (e.g. Pan Right +2) rather than descriptive words to easily stitch consecutive cuts in post-production.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 4. Articles & Courses -->
+    <!-- ========================================== -->
+    <section id="articles" class="mb-14">
+      <div class="mb-6 pb-2 border-b border-theme-border">
+        <h2 class="text-base font-bold text-white tracking-wide" data-i18n="sec-articles">Articles — Analysis & Insights</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <article class="p-5 rounded-xl border border-theme-border bg-theme-card hover:border-theme-border/80 transition flex flex-col justify-between">
+          <div>
+            <span class="text-[11px] text-theme-cyan font-semibold">Analysis</span>
+            <h3 class="text-sm font-bold text-white mt-1 mb-2" data-i18n="art-1-title">The Neural Graphics Revolution in Video Production</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4" data-i18n="art-1-desc">
+              How generative frame synthesis is replacing classical 3D ray-tracing render pipelines.
+            </p>
+          </div>
+          <span class="text-[11px] text-slate-400">TrendatAI Editorial · 4 min read</span>
+        </article>
+
+        <article class="p-5 rounded-xl border border-theme-border bg-theme-card hover:border-theme-border/80 transition flex flex-col justify-between">
+          <div>
+            <span class="text-[11px] text-purple-400 font-semibold">Workflow</span>
+            <h3 class="text-sm font-bold text-white mt-1 mb-2" data-i18n="art-2-title">AI Agents: Building an Automated Video Studio</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4" data-i18n="art-2-desc">
+              How autonomous models plan, generate assets, and synchronize voiceover without manual work.
+            </p>
+          </div>
+          <span class="text-[11px] text-slate-400">TrendatAI Editorial · 5 min read</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- 5. Courses Section -->
+    <section id="courses" class="mb-8">
+      <div class="p-6 rounded-xl border border-theme-border bg-gradient-to-r from-theme-card via-[#16202E] to-theme-card text-center max-w-2xl mx-auto">
+        <span class="text-xs font-bold text-theme-cyan uppercase tracking-wider" data-i18n="course-badge">Courses & Masterclasses</span>
+        <h3 class="text-base font-bold text-white mt-1 mb-2" data-i18n="course-title">Masterclasses & Training Programs</h3>
+        <p class="text-xs text-slate-300 leading-relaxed mb-4" data-i18n="course-desc">
+          Intensive training for creators learning cinematic AI filmmaking and advanced prompt engineering.
+        </p>
+        <span class="inline-block px-3 py-1 rounded bg-black/60 border border-theme-border text-[11px] text-slate-300" data-i18n="course-status">
+          Coming Soon
+        </span>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Video Modal -->
   <div id="videoModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="relative w-full max-w-4xl bg-black rounded-2xl overflow-hidden border border-brand-border shadow-2xl">
-      <button onclick="closeVideoModal()" class="absolute top-4 left-4 z-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition">
-        <i data-lucide="x" class="w-6 h-6"></i>
+    <div class="relative w-full max-w-4xl bg-black rounded-xl overflow-hidden border border-theme-border shadow-2xl">
+      <button onclick="closeVideoModal()" class="absolute top-4 left-4 z-10 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition">
+        <i data-lucide="x" class="w-4 h-4"></i>
       </button>
       <div class="aspect-video w-full">
         <iframe id="videoIframe" class="w-full h-full" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -326,33 +416,34 @@
   </div>
 
   <!-- Footer -->
-  <footer class="glass border-t border-brand-border mt-20 py-12 px-6">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-      <div class="text-center md:text-right">
-        <span class="font-cairo font-black text-xl text-white">Trendat<span class="text-brand-cyan">AI</span></span>
-        <p class="text-gray-500 text-xs mt-1">جميع الحقوق محفوظة © 2026 - صُنع بشغف بواسطة الذكاء الاصطناعي</p>
+  <footer class="border-t border-theme-border bg-[#090D13] py-8 px-5 text-xs text-slate-400">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <span class="font-bold text-white">Trendat<span class="text-theme-cyan">AI</span></span>
+        <span>— © 2026 Hosted on GitHub Pages.</span>
       </div>
-
-      <div class="flex items-center gap-4 text-gray-400">
-        <a href="https://x.com" target="_blank" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:text-brand-cyan transition">
-          <i data-lucide="twitter" class="w-4 h-4"></i>
-        </a>
-        <a href="https://youtube.com" target="_blank" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:text-brand-cyan transition">
-          <i data-lucide="youtube" class="w-4 h-4"></i>
-        </a>
-        <a href="https://github.com/trendatai" target="_blank" class="w-10 h-10 rounded-full glass flex items-center justify-center hover:text-brand-cyan transition">
-          <i data-lucide="github" class="w-4 h-4"></i>
-        </a>
+      <div class="flex items-center gap-5">
+        <a href="#portfolio" class="hover:text-white transition">Portfolio</a>
+        <a href="#articles" class="hover:text-white transition">Articles</a>
+        <a href="#tools" class="hover:text-white transition">AI Tools</a>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- سكربت التبديل اللغوي والسلايدر -->
   <script>
-    // Initialize Lucide Icons
     lucide.createIcons();
 
-    // Video Modal Handlers
+    // 1. Carousel Slider
+    function slideCarousel(direction) {
+      const slider = document.getElementById('featuredSlider');
+      const isRtl = document.documentElement.dir === 'rtl';
+      // Adjust scroll direction based on RTL / LTR
+      const amount = (direction * 360) * (isRtl ? -1 : 1);
+      slider.scrollBy({ left: amount, behavior: 'smooth' });
+    }
+
+    // 2. Video Modal
     function openVideoModal(url) {
       const modal = document.getElementById('videoModal');
       const iframe = document.getElementById('videoIframe');
@@ -367,6 +458,124 @@
       iframe.src = '';
       modal.classList.add('hidden');
       modal.classList.remove('flex');
+    }
+
+    // 3. Language Switcher (EN <-> AR)
+    let currentLang = 'en';
+
+    const translations = {
+      en: {
+        'nav-portfolio': 'Portfolio',
+        'nav-articles': 'Articles',
+        'nav-courses': 'Courses',
+        'nav-tools': 'AI Tools',
+        'nav-prompts': 'Master Prompts',
+        'nav-tips': 'Tips & Tricks',
+        'featured-title': 'Featured Highlights',
+        'slide-1-title': 'How to Create Complete Cinematic Short Films with Generative AI',
+        'slide-1-desc': 'Practical workflow connecting Midjourney assets with Runway Gen-3 camera controls.',
+        'slide-2-title': 'The Rapid Decline in Token Costs and What It Means for Media Creators',
+        'slide-2-desc': 'Analysis on how distilled architectures enable unlimited production iterations.',
+        'slide-3-title': 'Mastering 35mm and Anamorphic Lens Prompts for Cinematic Realism',
+        'slide-3-desc': 'Keyword structures that eliminate plastic textures and simulate physical film cameras.',
+        'slide-4-title': 'Building Autonomous Video Studios: From Script to Finished Cut',
+        'slide-4-desc': 'How agentic workflows automate asset generation and voiceover synchronization.',
+        'sec-portfolio': 'Portfolio — Featured AI Videos',
+        'video-1-title': 'Neo-Tokyo Cyberpunk 2099',
+        'video-1-desc': 'Fast camera motion with dynamic lighting and reflections.',
+        'video-2-title': 'Deep Space Odyssey',
+        'video-2-desc': 'Cinematic sci-fi sequences integrated with AI sound design.',
+        'video-3-title': 'Ancient Chronicles',
+        'video-3-desc': 'Realistic facial motion and historical character reenactment.',
+        'sec-tools': 'AI Tools — Curated Directory',
+        'tool-1-desc': 'The industry standard for cinematic AI video generation.',
+        'tool-2-desc': 'Superior photorealistic image synthesis and art design.',
+        'tool-3-desc': 'Lifelike emotional voice generation and multilingual dubbing.',
+        'tool-4-desc': 'Full composition background scores matching video themes.',
+        'sec-prompts': 'Master Prompts — Ready to Copy',
+        'sec-tips': 'Tips & Tricks — Workflow Hacks',
+        'tip-1-title': 'Image-to-Video Workflow',
+        'tip-1-desc': 'Never generate video directly from text; craft a high-detail base image in Midjourney first, then animate it in Runway for 10x fidelity.',
+        'tip-2-title': 'Precise Camera Values',
+        'tip-2-desc': 'Always set numeric values (e.g. Pan Right +2) rather than descriptive words to easily stitch consecutive cuts in post-production.',
+        'sec-articles': 'Articles — Analysis & Insights',
+        'art-1-title': 'The Neural Graphics Revolution in Video Production',
+        'art-1-desc': 'How generative frame synthesis is replacing classical 3D ray-tracing render pipelines.',
+        'art-2-title': 'AI Agents: Building an Automated Video Studio',
+        'art-2-desc': 'How autonomous models plan, generate assets, and synchronize voiceover without manual work.',
+        'course-badge': 'Courses & Masterclasses',
+        'course-title': 'Masterclasses & Training Programs',
+        'course-desc': 'Intensive training for creators learning cinematic AI filmmaking and advanced prompt engineering.',
+        'course-status': 'Coming Soon',
+        'lang-btn': 'العربية'
+      },
+      ar: {
+        'nav-portfolio': 'معرض الأعمال',
+        'nav-articles': 'المقالات',
+        'nav-courses': 'الدورات',
+        'nav-tools': 'أدوات الـ AI',
+        'nav-prompts': 'الأوامر الاحترافية',
+        'nav-tips': 'حيل ونصائح',
+        'featured-title': 'المواضيع المميزة',
+        'slide-1-title': 'كيف تصنع فيلمك السينمائي الأول كاملاً بالذكاء الاصطناعي؟',
+        'slide-1-desc': 'دليل عملي لتنسيق المشاهد بين Midjourney و Runway وتوليد حركات الكاميرا.',
+        'slide-2-title': 'انخفاض تكلفة معالجة الرموز: ثورة حقيقية للمطورين وصناع المحتوى',
+        'slide-2-desc': 'تحليل لكيف أصبحت النماذج أسرع وأرخص بنسبة 70% مقارنة بالماضي.',
+        'slide-3-title': 'أسرار صياغة أوامر الإضاءة السينمائية (35mm و Anamorphic)',
+        'slide-3-desc': 'كلمات مفتاحية تحول الصور التوليدية العادية إلى لقطات كأنها التقطت بكاميرا احترافية.',
+        'slide-4-title': 'الوكلاء الأذكياء: كيف تبني نظاماً يكتب وينتج محتواك ذاتياً؟',
+        'slide-4-desc': 'استكشاف خطوط الإنتاج الذاتية التي تدير مهام التوليد والمونتاج دون تدخل.',
+        'sec-portfolio': 'معرض الأعمال — فيديوهات سينمائية مختارة',
+        'video-1-title': 'مدينة السايبربانك 2099',
+        'video-1-desc': 'محاكاة سينمائية فائقة السرعة مع إضاءة نيون ديناميكية.',
+        'video-2-title': 'رحلة الفضاء السحيق',
+        'video-2-desc': 'لقطات سينمائية مع تصميم مؤثرات صوتية مدمجة بالذكاء الاصطناعي.',
+        'video-3-title': 'وثائقي الأساطير',
+        'video-3-desc': 'إحياء ملامح الشخصيات التاريخية بحركات طبيعية متطابقة مع النص.',
+        'sec-tools': 'أدوات الـ AI — الدليل المختار',
+        'tool-1-desc': 'الأداة الرائدة في إخراج لقطات الفيديو السينمائية الفائقة.',
+        'tool-2-desc': 'المحرك الأقوى لتوليد وتصميم الشخصيات والمشاهد الثابتة.',
+        'tool-3-desc': 'توليد أصوات وتعليق صوتي سينمائي بمختلف اللهجات العربية.',
+        'tool-4-desc': 'تأليف مقطوعات ومؤثرات صوتية خلفية تناسب سياق المشهد.',
+        'sec-prompts': 'الأوامر الاحترافية — جاهزة للنسخ',
+        'sec-tips': 'حيل ونصائح — تسريع الإنتاج',
+        'tip-1-title': 'مسار عمل Image-to-Video المتكامل',
+        'tip-1-desc': 'لا تولد الفيديو من النص مباشرة؛ قم بتوليد صورة متقنة في Midjourney أولاً ثم حركها في Runway لنتائج أفضل بعشر مرات.',
+        'tip-2-title': 'تحديد قيم الكاميرا بالأرقام',
+        'tip-2-desc': 'حدد سرعة وزاوية حركة الكاميرا برقم ثابت مثل (Pan Right +2) لكي يسهل عليك ربط المشاهد في المونتاج.',
+        'sec-articles': 'المقالات — تحليلات وتجارب',
+        'art-1-title': 'ثورة الرسوم العصبية في إنتاج الفيديو السينمائي',
+        'art-1-desc': 'كيف تقوم خوارزميات توليد الإطارات برسم المشاهد بديلاً عن محركات الرسوميات الكلاسيكية.',
+        'art-2-title': 'الوكلاء الأذكياء: بناء استوديو فيديو يدار تلقائياً',
+        'art-2-desc': 'خطوات ربط النماذج ببعضها لتوليد السيناريو والصور والمؤثرات الصوتية بنظام أتمتة كامل.',
+        'course-badge': 'الدورات والورش',
+        'course-title': 'الدورات والورش التخصصية',
+        'course-desc': 'ورش تدريبية تطبيقية لصناع المحتوى لتعلم أسرار الإخراج السينمائي بالـ AI من البداية للاحتراف.',
+        'course-status': 'قريباً',
+        'lang-btn': 'English'
+      }
+    };
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'en' ? 'ar' : 'en';
+      const html = document.getElementById('htmlTag');
+      
+      // تبديل الاتجاه واللغة
+      html.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+      html.setAttribute('lang', currentLang);
+
+      // تحديث النصوص
+      const dict = translations[currentLang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+          el.innerText = dict[key];
+        }
+      });
+
+      // زر التبديل
+      document.getElementById('langLabel').innerText = dict['lang-btn'];
+      lucide.createIcons();
     }
   </script>
 </body>
