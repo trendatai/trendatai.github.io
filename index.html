@@ -9,7 +9,7 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- Fonts: IBM Plex Sans & Arabic -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -50,7 +50,7 @@
         <span class="font-bold text-base text-slate-900 dark:text-white tracking-wide">Trendat<span class="text-cyan-500 dark:text-cyan-400">AI</span></span>
       </a>
 
-      <!-- Navigation Links (Dedicated URLs) -->
+      <!-- Navigation Links -->
       <nav class="hidden lg:flex items-center gap-6 text-[13px] font-medium text-slate-600 dark:text-slate-300">
         <a href="portfolio.html" data-i18n="nav-portfolio" class="hover:text-cyan-500 dark:hover:text-cyan-400 transition">Portfolio</a>
         <a href="articles.html" data-i18n="nav-articles" class="hover:text-cyan-500 dark:hover:text-cyan-400 transition">Articles</a>
@@ -60,12 +60,14 @@
         <a href="tips.html" data-i18n="nav-tips" class="hover:text-cyan-500 dark:hover:text-cyan-400 transition">Tips & Tricks</a>
       </nav>
 
-      <!-- Buttons: Dark/Light Mode & Language Switcher -->
+      <!-- Action Buttons -->
       <div class="flex items-center gap-2 sm:gap-3">
-        <button onclick="toggleTheme()" class="p-2 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-yellow-400 transition" title="Toggle Dark/Light Mode">
+        <!-- زر التبديل بين الليلي والساطع -->
+        <button onclick="toggleTheme()" class="p-2 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-yellow-400 transition" title="Toggle Theme">
           <i id="themeIcon" data-lucide="sun" class="w-4 h-4"></i>
         </button>
 
+        <!-- زر تبديل اللغة -->
         <button onclick="toggleLanguage()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-white transition">
           <i data-lucide="globe" class="w-3.5 h-3.5 text-cyan-500 dark:text-cyan-400"></i>
           <span id="langLabel">العربية</span>
@@ -87,9 +89,7 @@
   <!-- 2. Main Content -->
   <main class="max-w-7xl mx-auto px-5 py-8 w-full flex-1">
 
-    <!-- ============================================================== -->
-    <!-- المستعرض الإخباري المتقدم (صورة كبيرة + العنوان أسفلها + قائمة جانبية + تبديل كل 3 ثوانٍ) -->
-    <!-- ============================================================== -->
+    <!-- المستعرض الإخباري المتقدم -->
     <section class="mb-14">
       <div class="flex items-center justify-between mb-4 pb-2 border-b border-slate-200 dark:border-slate-800">
         <div class="flex items-center gap-2">
@@ -101,63 +101,58 @@
         </span>
       </div>
 
-      <!-- الحاوية الرئيسية للمستعرض الإخباري -->
       <div id="newsSliderContainer" class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         
-        <!-- العمود الأكبر: الصورة الكبيرة والعنوان أسفل الصورة (8 أعمدة) -->
+        <!-- الموضوع الرئيسي (الصورة الكبيرة والعنوان أسفلها) -->
         <div class="lg:col-span-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#121824] overflow-hidden p-4 sm:p-5 shadow-sm group">
-          
-          <!-- الصورة الكبيرة -->
-          <a id="mainStoryImageLink" href="articles/ai-filmmaking.html" class="block aspect-[16/9] w-full rounded-xl overflow-hidden bg-black relative">
-            <img id="mainStoryImage" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&q=80" alt="Main Story" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105" />
+          <a id="mainStoryImageLink" href="articles/ai-avatar-motion-graphics.html" class="block aspect-[16/9] w-full rounded-xl overflow-hidden bg-black relative">
+            <img id="mainStoryImage" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&q=80" alt="Main Story" class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105" />
             <span id="mainStoryCategory" class="absolute top-3 left-3 bg-black/80 backdrop-blur-md text-cyan-400 text-xs font-bold px-3 py-1 rounded-md border border-cyan-500/30">
-              Video Generation
+              YouTube Tutorial
             </span>
           </a>
 
-          <!-- بيانات وعنوان الموضوع أسفل الصورة مباشرة -->
           <div class="pt-5">
             <div class="flex items-center gap-3 text-xs text-slate-400 mb-2">
-              <span id="mainStoryReadTime" class="font-medium">5 min read</span>
+              <span id="mainStoryReadTime" class="font-medium">10 min watch</span>
               <span>•</span>
-              <span class="text-cyan-600 dark:text-cyan-400 font-medium">Top Story</span>
+              <span class="text-cyan-600 dark:text-cyan-400 font-medium">Featured Post</span>
             </div>
 
-            <!-- عنوان الموضوع الكبير أسفل الصورة -->
             <h1 class="text-lg sm:text-2xl font-bold text-slate-900 dark:text-white leading-snug mb-3">
-              <a id="mainStoryTitleLink" href="articles/ai-filmmaking.html" class="hover:text-cyan-500 transition duration-200">
-                How to Create Complete Cinematic Short Films with Generative AI
+              <a id="mainStoryTitleLink" href="articles/ai-avatar-motion-graphics.html" class="hover:text-cyan-500 transition duration-200">
+                Create an AI Talking Avatar with Arabic Lip-Sync & Motion Graphics
               </a>
             </h1>
 
             <p id="mainStoryDesc" class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-4">
-              Practical workflow connecting Midjourney assets with Runway Gen-3 camera controls.
+              Complete step-by-step workflow using Google Flow, Omni Flash, and Gemini.
             </p>
 
-            <a id="mainStoryButton" href="articles/ai-filmmaking.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-600 dark:text-cyan-400 hover:gap-2.5 transition-all">
+            <a id="mainStoryButton" href="articles/ai-avatar-motion-graphics.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-600 dark:text-cyan-400 hover:gap-2.5 transition-all">
               <span>Read Full Story</span>
               <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
           </div>
         </div>
 
-        <!-- العمود الجانبي: قائمة المواضيع المصغرة بجانب الموضوع الرئيسي (4 أعمدة) -->
+        <!-- القائمة الجانبية المصغرة -->
         <div class="lg:col-span-4 flex flex-col gap-3">
           
-          <!-- بطاقة جانبية 0 -->
-          <div onclick="selectStory(0)" id="sideItem-0" class="side-item p-3 rounded-xl border border-cyan-500 bg-cyan-50/50 dark:bg-cyan-950/20 cursor-pointer transition-all duration-300 flex items-center gap-3">
-            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=200&q=80" class="w-16 h-16 rounded-lg object-cover shrink-0" alt="Thumb 0">
+          <!-- بطاقة 0: مقالك الجديد -->
+          <div onclick="selectStory(0)" id="sideItem-0" class="side-item p-3 rounded-xl border border-cyan-500 bg-cyan-50/70 dark:bg-cyan-950/40 cursor-pointer transition-all duration-300 flex items-center gap-3 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=200&q=80" class="w-16 h-16 rounded-lg object-cover shrink-0" alt="Avatar Tutorial">
             <div class="overflow-hidden">
-              <span class="text-[10px] font-bold text-cyan-600 dark:text-cyan-400 uppercase tracking-wider block">Video AI</span>
+              <span class="text-[10px] font-bold text-cyan-600 dark:text-cyan-400 uppercase tracking-wider block">Avatar & Motion</span>
               <h4 class="text-xs font-bold text-slate-900 dark:text-white line-clamp-2 mt-0.5" data-side-title="0">
-                How to Create Complete Cinematic Short Films with Generative AI
+                Create an AI Talking Avatar with Arabic Lip-Sync & Motion Graphics
               </h4>
             </div>
           </div>
 
-          <!-- بطاقة جانبية 1 -->
+          <!-- بطاقة 1 -->
           <div onclick="selectStory(1)" id="sideItem-1" class="side-item p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#121824] hover:border-slate-400 dark:hover:border-slate-700 cursor-pointer transition-all duration-300 flex items-center gap-3">
-            <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=200&q=80" class="w-16 h-16 rounded-lg object-cover shrink-0" alt="Thumb 1">
+            <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=200&q=80" class="w-16 h-16 rounded-lg object-cover shrink-0" alt="LLMs">
             <div class="overflow-hidden">
               <span class="text-[10px] font-bold text-purple-500 uppercase tracking-wider block">LLMs & Cost</span>
               <h4 class="text-xs font-bold text-slate-900 dark:text-white line-clamp-2 mt-0.5" data-side-title="1">
@@ -166,9 +161,9 @@
             </div>
           </div>
 
-          <!-- بطاقة جانبية 2 -->
+          <!-- بطاقة 2 -->
           <div onclick="selectStory(2)" id="sideItem-2" class="side-item p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#121824] hover:border-slate-400 dark:hover:border-slate-700 cursor-pointer transition-all duration-300 flex items-center gap-3">
-            <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=200&q=80" class="w-16 h-16 rounded-lg object-cover shrink-0" alt="Thumb 2">
+            <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=200&q=80" class="w-16 h-16 rounded-lg object-cover shrink-0" alt="Prompts">
             <div class="overflow-hidden">
               <span class="text-[10px] font-bold text-emerald-500 uppercase tracking-wider block">Prompts</span>
               <h4 class="text-xs font-bold text-slate-900 dark:text-white line-clamp-2 mt-0.5" data-side-title="2">
@@ -177,9 +172,9 @@
             </div>
           </div>
 
-          <!-- بطاقة جانبية 3 -->
+          <!-- بطاقة 3 -->
           <div onclick="selectStory(3)" id="sideItem-3" class="side-item p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#121824] hover:border-slate-400 dark:hover:border-slate-700 cursor-pointer transition-all duration-300 flex items-center gap-3">
-            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=200&q=80" class="w-16 h-16 rounded-lg object-cover shrink-0" alt="Thumb 3">
+            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=200&q=80" class="w-16 h-16 rounded-lg object-cover shrink-0" alt="AI Agents">
             <div class="overflow-hidden">
               <span class="text-[10px] font-bold text-blue-500 uppercase tracking-wider block">AI Agents</span>
               <h4 class="text-xs font-bold text-slate-900 dark:text-white line-clamp-2 mt-0.5" data-side-title="3">
@@ -189,7 +184,6 @@
           </div>
 
         </div>
-
       </div>
     </section>
 
@@ -322,29 +316,25 @@
     </div>
   </footer>
 
-  <!-- ============================================================== -->
-  <!-- JavaScript: التحكم بالتبديل التلقائي كل 3 ثوانٍ واللغة والثيم -->
-  <!-- ============================================================== -->
+  <!-- Scripts -->
   <script>
-    lucide.createIcons();
-
-    // 1. بيانات القصص المميزة (تدعم اللغتين الإنجليزية والعربية والروابط المنفصلة)
+    // 1. مصفوفة القصص - مقالك الجديد أصبح رقم 0
     const featuredStories = [
       {
-  id: 0,
-  category: "YouTube Tutorial",
-  url: "articles/ai-avatar-motion-graphics.html",
-  image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&q=80",
-  readTime: "10 min watch",
-  en: {
-    title: "Create an AI Talking Avatar with Arabic Lip-Sync & Motion Graphics",
-    desc: "Complete step-by-step workflow using Google Flow, Omni Flash, and Gemini."
-  },
-  ar: {
-    title: "صناعة شخصية افتراضية متكلمة مع موشن جرافيك بالذكاء الاصطناعي",
-    desc: "شرح عملي خطوة بخطوة بالدمج بين Google Flow وموديل Omni Flash ومونتاج CapCut."
-  }
-}
+        id: 0,
+        category: "Avatar & Motion",
+        url: "articles/ai-avatar-motion-graphics.html",
+        image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&q=80",
+        readTime: "10 min watch",
+        en: {
+          title: "Create an AI Talking Avatar with Arabic Lip-Sync & Motion Graphics",
+          desc: "Complete step-by-step workflow using Google Flow, Omni Flash, and Gemini."
+        },
+        ar: {
+          title: "صناعة شخصية افتراضية متكلمة مع موشن جرافيك بالذكاء الاصطناعي",
+          desc: "شرح عملي خطوة بخطوة بالدمج بين Google Flow وموديل Omni Flash ومونتاج CapCut."
+        }
+      },
       {
         id: 1,
         category: "LLMs & Cost",
@@ -396,19 +386,21 @@
     let autoSlideTimer = null;
     let currentLang = 'en';
 
-    // 2. دالة تحديث وعرض الموضوع النشط
     function displayStory(index) {
       currentStoryIndex = index;
       const story = featuredStories[index];
-      const langData = story[currentLang];
+      if (!story) return;
 
-      // تحديث عناصر الموضوع الرئيسي (الصورة الكبيرة والعنوان أسفلها)
+      const langData = story[currentLang] || story['en'];
+
       const mainImg = document.getElementById('mainStoryImage');
-      mainImg.style.opacity = '0.5';
-      setTimeout(() => {
-        mainImg.src = story.image;
-        mainImg.style.opacity = '1';
-      }, 150);
+      if (mainImg) {
+        mainImg.style.opacity = '0.6';
+        setTimeout(() => {
+          mainImg.src = story.image;
+          mainImg.style.opacity = '1';
+        }, 150);
+      }
 
       document.getElementById('mainStoryImageLink').href = story.url;
       document.getElementById('mainStoryTitleLink').href = story.url;
@@ -418,9 +410,9 @@
       document.getElementById('mainStoryCategory').innerText = story.category;
       document.getElementById('mainStoryReadTime').innerText = story.readTime;
 
-      // تحديث مظهر العناصر في القائمة الجانبية المصغرة
       featuredStories.forEach((_, i) => {
         const item = document.getElementById(`sideItem-${i}`);
+        if (!item) return;
         if (i === index) {
           item.className = "side-item p-3 rounded-xl border border-cyan-500 bg-cyan-50/70 dark:bg-cyan-950/40 cursor-pointer transition-all duration-300 flex items-center gap-3 shadow-sm";
         } else {
@@ -429,13 +421,12 @@
       });
     }
 
-    // 3. التبديل التلقائي كل 3 ثوانٍ
     function startAutoSlide() {
       stopAutoSlide();
       autoSlideTimer = setInterval(() => {
         currentStoryIndex = (currentStoryIndex + 1) % featuredStories.length;
         displayStory(currentStoryIndex);
-      }, 3000); // 3 ثوانٍ بالضبط
+      }, 3000);
     }
 
     function stopAutoSlide() {
@@ -444,19 +435,16 @@
 
     function selectStory(index) {
       displayStory(index);
-      startAutoSlide(); // إعادة تشغيل المؤقت عند الاختيار اليدوي
+      startAutoSlide();
     }
 
-    // إيقاف مؤقت للتبديل عند تحويم الفأرة فوق المستعرض ليقرأ الزائر براحة
     const sliderBox = document.getElementById('newsSliderContainer');
-    sliderBox.addEventListener('mouseenter', stopAutoSlide);
-    sliderBox.addEventListener('mouseleave', startAutoSlide);
+    if (sliderBox) {
+      sliderBox.addEventListener('mouseenter', stopAutoSlide);
+      sliderBox.addEventListener('mouseleave', startAutoSlide);
+    }
 
-    // تشغيل المستعرض لأول مرة
-    displayStory(0);
-    startAutoSlide();
-
-    // 4. التحكم في نافذة الفيديو
+    // Video modal
     function openVideoModal(url) {
       const modal = document.getElementById('videoModal');
       const iframe = document.getElementById('videoIframe');
@@ -466,114 +454,4 @@
     }
 
     function closeVideoModal() {
-      const modal = document.getElementById('videoModal');
-      const iframe = document.getElementById('videoIframe');
-      iframe.src = '';
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-    }
-
-    // 5. التبديل بين الوضع الليلي والساطع
-    function toggleTheme() {
-      const html = document.documentElement;
-      const isDark = html.classList.toggle('dark');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      updateThemeIcon(isDark);
-    }
-
-    function updateThemeIcon(isDark) {
-      const icon = document.getElementById('themeIcon');
-      if (isDark) {
-        icon.setAttribute('data-lucide', 'sun');
-        icon.classList.remove('text-slate-700');
-        icon.classList.add('text-yellow-400');
-      } else {
-        icon.setAttribute('data-lucide', 'moon');
-        icon.classList.remove('text-yellow-400');
-        icon.classList.add('text-slate-700');
-      }
-      lucide.createIcons();
-    }
-
-    (function initTheme() {
-      const savedTheme = localStorage.getItem('theme');
-      const isDark = savedTheme ? savedTheme === 'dark' : true;
-      if (!isDark) document.documentElement.classList.remove('dark');
-      updateThemeIcon(isDark);
-    })();
-
-    // 6. القاموس والتبديل اللغوي
-    const translations = {
-      en: {
-        'nav-portfolio': 'Portfolio',
-        'nav-articles': 'Articles',
-        'nav-courses': 'Courses',
-        'nav-tools': 'AI Tools',
-        'nav-prompts': 'Master Prompts',
-        'nav-tips': 'Tips & Tricks',
-        'featured-title': 'Featured Highlights',
-        'sec-portfolio': 'Portfolio Preview',
-        'video-1-title': 'Neo-Tokyo Cyberpunk 2099',
-        'video-1-desc': 'Fast camera motion with dynamic lighting and reflections.',
-        'video-2-title': 'Deep Space Odyssey',
-        'video-2-desc': 'Cinematic sci-fi sequences integrated with AI sound design.',
-        'video-3-title': 'Ancient Chronicles',
-        'video-3-desc': 'Realistic facial motion and historical character reenactment.',
-        'sec-tools': 'AI Tools Directory',
-        'tool-1-desc': 'The industry standard for cinematic AI video generation.',
-        'tool-2-desc': 'Superior photorealistic image synthesis and art design.',
-        'tool-3-desc': 'Lifelike emotional voice generation and multilingual dubbing.',
-        'tool-4-desc': 'Full composition background scores matching video themes.',
-        'lang-btn': 'العربية'
-      },
-      ar: {
-        'nav-portfolio': 'معرض الأعمال',
-        'nav-articles': 'المقالات',
-        'nav-courses': 'الدورات',
-        'nav-tools': 'أدوات الـ AI',
-        'nav-prompts': 'الأوامر الاحترافية',
-        'nav-tips': 'حيل ونصائح',
-        'featured-title': 'المواضيع المميزة',
-        'sec-portfolio': 'معاينة معرض الأعمال',
-        'video-1-title': 'مدينة السايبربانك 2099',
-        'video-1-desc': 'محاكاة سينمائية فائقة السرعة مع إضاءة نيون ديناميكية.',
-        'video-2-title': 'رحلة الفضاء السحيق',
-        'video-2-desc': 'لقطات سينمائية مع تصميم مؤثرات صوتية مدمجة بالذكاء الاصطناعي.',
-        'video-3-title': 'وثائقي الأساطير',
-        'video-3-desc': 'إحياء ملامح الشخصيات التاريخية بحركات طبيعية متطابقة مع النص.',
-        'sec-tools': 'دليل أدوات الـ AI',
-        'tool-1-desc': 'الأداة الرائدة في إخراج لقطات الفيديو السينمائية الفائقة.',
-        'tool-2-desc': 'المحرك الأقوى لتوليد وتصميم الشخصيات والمشاهد الثابتة.',
-        'tool-3-desc': 'توليد أصوات وتعليق صوتي سينمائي بمختلف اللهجات العربية.',
-        'tool-4-desc': 'تأليف مقطوعات ومؤثرات صوتية خلفية تناسب سياق المشهد.',
-        'lang-btn': 'English'
-      }
-    };
-
-    function toggleLanguage() {
-      currentLang = currentLang === 'en' ? 'ar' : 'en';
-      const html = document.getElementById('htmlTag');
-      html.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
-      html.setAttribute('lang', currentLang);
-
-      const dict = translations[currentLang];
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (dict[key]) el.innerText = dict[key];
-      });
-
-      // تحديث عناوين القائمة الجانبية بحسب اللغة
-      featuredStories.forEach((st, i) => {
-        const el = document.querySelector(`[data-side-title="${i}"]`);
-        if (el) el.innerText = st[currentLang].title;
-      });
-
-      // تحديث الموضوع الرئيسي المعروض
-      displayStory(currentStoryIndex);
-
-      document.getElementById('langLabel').innerText = dict['lang-btn'];
-      lucide.createIcons();
-    }
-  </script>
-</body>
-</html>
+      const mo
