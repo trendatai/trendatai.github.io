@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" id="htmlTag" class="scroll-smooth antialiased">
+<html lang="en" dir="ltr" id="htmlTag" class="scroll-smooth antialiased dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,7 +9,7 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- Fonts -->
+  <!-- Fonts: IBM Plex Sans & Arabic -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -19,6 +19,7 @@
 
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           fontFamily: {
@@ -26,10 +27,6 @@
           },
           colors: {
             theme: {
-              bg: '#0B0F17',
-              card: '#121824',
-              border: '#1E293B',
-              hover: '#1B2436',
               cyan: '#06B6D4',
               violet: '#8B5CF6',
             }
@@ -40,71 +37,80 @@
   </script>
 
   <style>
-    body { background-color: #0B0F17; color: #E2E8F0; }
+    /* أنماط مخصصة للسلايدر */
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body class="selection:bg-theme-cyan selection:text-black min-h-screen flex flex-col justify-between">
+<body class="bg-slate-50 text-slate-800 dark:bg-[#0B0F17] dark:text-[#E2E8F0] selection:bg-cyan-500 selection:text-black min-h-screen flex flex-col justify-between transition-colors duration-300">
 
-  <!-- 1. Header / Navbar with Dedicated URLs -->
-  <header class="sticky top-0 z-40 bg-[#0B0F17]/95 backdrop-blur-md border-b border-theme-border">
+  <!-- 1. Header / Navbar -->
+  <header class="sticky top-0 z-40 bg-white/90 dark:bg-[#0B0F17]/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
     <div class="max-w-7xl mx-auto px-5 h-16 flex items-center justify-between gap-4">
       
-      <!-- Logo -->
+      <!-- Brand Logo -->
       <a href="index.html" class="flex items-center gap-2.5 shrink-0">
-        <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-theme-cyan to-theme-violet flex items-center justify-center text-black font-black text-sm shadow">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-cyan-500 to-purple-600 flex items-center justify-center text-white font-black text-sm shadow">
           T
         </div>
-        <span class="font-bold text-base text-white tracking-wide">Trendat<span class="text-theme-cyan">AI</span></span>
+        <span class="font-bold text-base text-slate-900 dark:text-white tracking-wide">Trendat<span class="text-cyan-500 dark:text-cyan-400">AI</span></span>
       </a>
 
-      <!-- Dedicated Page Navigation Links -->
-      <nav class="hidden lg:flex items-center gap-6 text-[13px] font-medium text-slate-300">
-        <a href="portfolio.html" data-i18n="nav-portfolio" class="hover:text-theme-cyan transition duration-150">Portfolio</a>
-        <a href="articles.html" data-i18n="nav-articles" class="hover:text-theme-cyan transition duration-150">Articles</a>
-        <a href="courses.html" data-i18n="nav-courses" class="hover:text-theme-cyan transition duration-150">Courses</a>
-        <a href="tools.html" data-i18n="nav-tools" class="hover:text-theme-cyan transition duration-150">AI Tools</a>
-        <a href="prompts.html" data-i18n="nav-prompts" class="hover:text-theme-cyan transition duration-150">Master Prompts</a>
-        <a href="tips.html" data-i18n="nav-tips" class="hover:text-theme-cyan transition duration-150">Tips & Tricks</a>
+      <!-- Navigation Links (Dedicated URLs) -->
+      <nav class="hidden lg:flex items-center gap-6 text-[13px] font-medium text-slate-600 dark:text-slate-300">
+        <a href="portfolio.html" data-i18n="nav-portfolio" class="hover:text-cyan-500 dark:hover:text-cyan-400 transition">Portfolio</a>
+        <a href="articles.html" data-i18n="nav-articles" class="hover:text-cyan-500 dark:hover:text-cyan-400 transition">Articles</a>
+        <a href="courses.html" data-i18n="nav-courses" class="hover:text-cyan-500 dark:hover:text-cyan-400 transition">Courses</a>
+        <a href="tools.html" data-i18n="nav-tools" class="hover:text-cyan-500 dark:hover:text-cyan-400 transition">AI Tools</a>
+        <a href="prompts.html" data-i18n="nav-prompts" class="hover:text-cyan-500 dark:hover:text-cyan-400 transition">Master Prompts</a>
+        <a href="tips.html" data-i18n="nav-tips" class="hover:text-cyan-500 dark:hover:text-cyan-400 transition">Tips & Tricks</a>
       </nav>
 
-      <!-- Language Switcher -->
-      <div class="flex items-center gap-3">
-        <button onclick="toggleLanguage()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-theme-border text-xs font-semibold text-white transition">
-          <i data-lucide="globe" class="w-3.5 h-3.5 text-theme-cyan"></i>
+      <!-- Action Buttons: Theme Toggle & Language Toggle -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        
+        <!-- زر التبديل بين الليلي والساطع -->
+        <button onclick="toggleTheme()" class="p-2 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-yellow-400 transition" title="Toggle Dark/Light Mode">
+          <i id="themeIcon" data-lucide="sun" class="w-4 h-4"></i>
+        </button>
+
+        <!-- زر تبديل اللغة -->
+        <button onclick="toggleLanguage()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-white transition">
+          <i data-lucide="globe" class="w-3.5 h-3.5 text-cyan-500 dark:text-cyan-400"></i>
           <span id="langLabel">العربية</span>
         </button>
+
       </div>
     </div>
 
     <!-- Mobile Scroll Bar -->
-    <div class="lg:hidden flex items-center gap-5 px-5 py-2 overflow-x-auto border-t border-theme-border text-xs font-medium text-slate-300 no-scrollbar whitespace-nowrap">
-      <a href="portfolio.html" data-i18n="nav-portfolio" class="hover:text-theme-cyan">Portfolio</a>
-      <a href="articles.html" data-i18n="nav-articles" class="hover:text-theme-cyan">Articles</a>
-      <a href="courses.html" data-i18n="nav-courses" class="hover:text-theme-cyan">Courses</a>
-      <a href="tools.html" data-i18n="nav-tools" class="hover:text-theme-cyan">AI Tools</a>
-      <a href="prompts.html" data-i18n="nav-prompts" class="hover:text-theme-cyan">Master Prompts</a>
-      <a href="tips.html" data-i18n="nav-tips" class="hover:text-theme-cyan">Tips & Tricks</a>
+    <div class="lg:hidden flex items-center gap-5 px-5 py-2 overflow-x-auto border-t border-slate-200 dark:border-slate-800 text-xs font-medium text-slate-600 dark:text-slate-300 no-scrollbar whitespace-nowrap">
+      <a href="portfolio.html" data-i18n="nav-portfolio" class="hover:text-cyan-500">Portfolio</a>
+      <a href="articles.html" data-i18n="nav-articles" class="hover:text-cyan-500">Articles</a>
+      <a href="courses.html" data-i18n="nav-courses" class="hover:text-cyan-500">Courses</a>
+      <a href="tools.html" data-i18n="nav-tools" class="hover:text-cyan-500">AI Tools</a>
+      <a href="prompts.html" data-i18n="nav-prompts" class="hover:text-cyan-500">Master Prompts</a>
+      <a href="tips.html" data-i18n="nav-tips" class="hover:text-cyan-500">Tips & Tricks</a>
     </div>
   </header>
 
   <!-- 2. Main Content -->
   <main class="max-w-7xl mx-auto px-5 py-8 w-full flex-1">
 
-    <!-- Featured Highlights Carousel with Dedicated Article Links -->
+    <!-- Featured Highlights Slider -->
     <section class="mb-14">
-      <div class="flex items-center justify-between mb-4 pb-2 border-b border-theme-border">
+      <div class="flex items-center justify-between mb-4 pb-2 border-b border-slate-200 dark:border-slate-800">
         <div class="flex items-center gap-2">
-          <span class="w-2.5 h-2.5 rounded-full bg-theme-cyan animate-pulse"></span>
-          <h2 class="text-sm sm:text-base font-bold text-white tracking-wide" data-i18n="featured-title">Featured Highlights</h2>
+          <span class="w-2.5 h-2.5 rounded-full bg-cyan-500 animate-pulse"></span>
+          <h2 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white tracking-wide" data-i18n="featured-title">Featured Highlights</h2>
         </div>
 
+        <!-- Slider Controls -->
         <div class="flex items-center gap-2">
-          <button onclick="slideCarousel(-1)" class="w-8 h-8 rounded-lg bg-theme-card border border-theme-border hover:bg-theme-hover hover:border-theme-cyan text-slate-300 hover:text-white flex items-center justify-center transition shadow" aria-label="Previous">
+          <button onclick="slideCarousel(-1)" class="w-8 h-8 rounded-lg bg-white dark:bg-[#121824] border border-slate-200 dark:border-slate-800 hover:border-cyan-500 text-slate-600 dark:text-slate-300 flex items-center justify-center transition shadow-sm">
             <i data-lucide="chevron-left" class="w-4 h-4"></i>
           </button>
-          <button onclick="slideCarousel(1)" class="w-8 h-8 rounded-lg bg-theme-card border border-theme-border hover:bg-theme-hover hover:border-theme-cyan text-slate-300 hover:text-white flex items-center justify-center transition shadow" aria-label="Next">
+          <button onclick="slideCarousel(1)" class="w-8 h-8 rounded-lg bg-white dark:bg-[#121824] border border-slate-200 dark:border-slate-800 hover:border-cyan-500 text-slate-600 dark:text-slate-300 flex items-center justify-center transition shadow-sm">
             <i data-lucide="chevron-right" class="w-4 h-4"></i>
           </button>
         </div>
@@ -113,82 +119,82 @@
       <!-- Slider Track -->
       <div id="featuredSlider" class="flex gap-4 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory py-1">
         
-        <!-- Slide 1 -> Dedicated URL: articles/ai-filmmaking.html -->
-        <a href="articles/ai-filmmaking.html" class="snap-start shrink-0 w-[290px] sm:w-[350px] rounded-xl border border-theme-border bg-theme-card overflow-hidden group hover:border-theme-cyan/50 transition duration-300 block">
+        <!-- Slide 1 -->
+        <a href="articles/ai-filmmaking.html" class="snap-start shrink-0 w-[290px] sm:w-[350px] rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#121824] overflow-hidden group hover:border-cyan-500/50 transition duration-300 shadow-sm block">
           <div class="aspect-[16/9] w-full overflow-hidden relative">
             <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=700&q=80" alt="Video AI" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-            <span class="absolute top-2.5 left-2.5 bg-black/75 backdrop-blur-md text-theme-cyan text-[11px] font-bold px-2 py-0.5 rounded border border-theme-cyan/30">Video Generation</span>
+            <span class="absolute top-2.5 left-2.5 bg-black/75 backdrop-blur-md text-cyan-400 text-[11px] font-bold px-2 py-0.5 rounded border border-cyan-500/30">Video Generation</span>
           </div>
           <div class="p-4">
-            <h3 class="text-sm font-bold text-white group-hover:text-theme-cyan transition leading-snug mb-2 line-clamp-2" data-i18n="slide-1-title">
+            <h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-cyan-500 transition leading-snug mb-2 line-clamp-2" data-i18n="slide-1-title">
               How to Create Complete Cinematic Short Films with Generative AI
             </h3>
-            <p class="text-xs text-slate-400 line-clamp-2 leading-relaxed mb-3" data-i18n="slide-1-desc">
+            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed mb-3" data-i18n="slide-1-desc">
               Practical workflow connecting Midjourney assets with Runway Gen-3 camera controls.
             </p>
-            <div class="text-[11px] text-slate-400 flex items-center justify-between border-t border-theme-border/60 pt-2.5">
+            <div class="text-[11px] text-slate-400 flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-2.5">
               <span>5 min read</span>
-              <span class="text-theme-cyan font-medium group-hover:underline">Read Article →</span>
+              <span class="text-cyan-500 font-medium group-hover:underline">Read Article →</span>
             </div>
           </div>
         </a>
 
-        <!-- Slide 2 -> Dedicated URL: articles/token-costs.html -->
-        <a href="articles/token-costs.html" class="snap-start shrink-0 w-[290px] sm:w-[350px] rounded-xl border border-theme-border bg-theme-card overflow-hidden group hover:border-theme-violet/50 transition duration-300 block">
+        <!-- Slide 2 -->
+        <a href="articles/token-costs.html" class="snap-start shrink-0 w-[290px] sm:w-[350px] rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#121824] overflow-hidden group hover:border-purple-500/50 transition duration-300 shadow-sm block">
           <div class="aspect-[16/9] w-full overflow-hidden relative">
             <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=700&q=80" alt="Models" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
             <span class="absolute top-2.5 left-2.5 bg-black/75 backdrop-blur-md text-purple-300 text-[11px] font-bold px-2 py-0.5 rounded border border-purple-500/30">LLMs & Cost</span>
           </div>
           <div class="p-4">
-            <h3 class="text-sm font-bold text-white group-hover:text-purple-300 transition leading-snug mb-2 line-clamp-2" data-i18n="slide-2-title">
+            <h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-purple-500 transition leading-snug mb-2 line-clamp-2" data-i18n="slide-2-title">
               The Rapid Decline in Token Costs and What It Means for Media Creators
             </h3>
-            <p class="text-xs text-slate-400 line-clamp-2 leading-relaxed mb-3" data-i18n="slide-2-desc">
+            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed mb-3" data-i18n="slide-2-desc">
               Analysis on how distilled architectures enable unlimited production iterations.
             </p>
-            <div class="text-[11px] text-slate-400 flex items-center justify-between border-t border-theme-border/60 pt-2.5">
+            <div class="text-[11px] text-slate-400 flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-2.5">
               <span>4 min read</span>
-              <span class="text-purple-400 font-medium group-hover:underline">Read Article →</span>
+              <span class="text-purple-500 font-medium group-hover:underline">Read Article →</span>
             </div>
           </div>
         </a>
 
-        <!-- Slide 3 -> Dedicated URL: articles/cinematic-prompts.html -->
-        <a href="articles/cinematic-prompts.html" class="snap-start shrink-0 w-[290px] sm:w-[350px] rounded-xl border border-theme-border bg-theme-card overflow-hidden group hover:border-emerald-400/50 transition duration-300 block">
+        <!-- Slide 3 -->
+        <a href="articles/cinematic-prompts.html" class="snap-start shrink-0 w-[290px] sm:w-[350px] rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#121824] overflow-hidden group hover:border-emerald-500/50 transition duration-300 shadow-sm block">
           <div class="aspect-[16/9] w-full overflow-hidden relative">
             <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=700&q=80" alt="Prompts" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
             <span class="absolute top-2.5 left-2.5 bg-black/75 backdrop-blur-md text-emerald-300 text-[11px] font-bold px-2 py-0.5 rounded border border-emerald-500/30">Prompt Engineering</span>
           </div>
           <div class="p-4">
-            <h3 class="text-sm font-bold text-white group-hover:text-emerald-300 transition leading-snug mb-2 line-clamp-2" data-i18n="slide-3-title">
+            <h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-emerald-500 transition leading-snug mb-2 line-clamp-2" data-i18n="slide-3-title">
               Mastering 35mm and Anamorphic Lens Prompts for Cinematic Realism
             </h3>
-            <p class="text-xs text-slate-400 line-clamp-2 leading-relaxed mb-3" data-i18n="slide-3-desc">
+            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed mb-3" data-i18n="slide-3-desc">
               Keyword structures that eliminate plastic textures and simulate physical film cameras.
             </p>
-            <div class="text-[11px] text-slate-400 flex items-center justify-between border-t border-theme-border/60 pt-2.5">
+            <div class="text-[11px] text-slate-400 flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-2.5">
               <span>3 min read</span>
-              <span class="text-emerald-400 font-medium group-hover:underline">Read Article →</span>
+              <span class="text-emerald-500 font-medium group-hover:underline">Read Article →</span>
             </div>
           </div>
         </a>
 
-        <!-- Slide 4 -> Dedicated URL: articles/autonomous-studios.html -->
-        <a href="articles/autonomous-studios.html" class="snap-start shrink-0 w-[290px] sm:w-[350px] rounded-xl border border-theme-border bg-theme-card overflow-hidden group hover:border-cyan-400/50 transition duration-300 block">
+        <!-- Slide 4 -->
+        <a href="articles/autonomous-studios.html" class="snap-start shrink-0 w-[290px] sm:w-[350px] rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#121824] overflow-hidden group hover:border-cyan-500/50 transition duration-300 shadow-sm block">
           <div class="aspect-[16/9] w-full overflow-hidden relative">
             <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=700&q=80" alt="Agents" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
             <span class="absolute top-2.5 left-2.5 bg-black/75 backdrop-blur-md text-blue-300 text-[11px] font-bold px-2 py-0.5 rounded border border-blue-500/30">Autonomous Agents</span>
           </div>
           <div class="p-4">
-            <h3 class="text-sm font-bold text-white group-hover:text-blue-300 transition leading-snug mb-2 line-clamp-2" data-i18n="slide-4-title">
+            <h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-blue-500 transition leading-snug mb-2 line-clamp-2" data-i18n="slide-4-title">
               Building Autonomous Video Studios: From Script to Finished Cut
             </h3>
-            <p class="text-xs text-slate-400 line-clamp-2 leading-relaxed mb-3" data-i18n="slide-4-desc">
+            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed mb-3" data-i18n="slide-4-desc">
               How agentic workflows automate asset generation and voiceover synchronization.
             </p>
-            <div class="text-[11px] text-slate-400 flex items-center justify-between border-t border-theme-border/60 pt-2.5">
+            <div class="text-[11px] text-slate-400 flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-2.5">
               <span>6 min read</span>
-              <span class="text-blue-300 font-medium group-hover:underline">Read Article →</span>
+              <span class="text-blue-500 font-medium group-hover:underline">Read Article →</span>
             </div>
           </div>
         </a>
@@ -196,111 +202,111 @@
       </div>
     </section>
 
-    <!-- Homepage Preview Sections -->
+    <!-- Portfolio Preview -->
     <section class="mb-14">
-      <div class="flex items-center justify-between mb-6 pb-2 border-b border-theme-border">
-        <h2 class="text-base font-bold text-white tracking-wide" data-i18n="sec-portfolio">Portfolio Preview</h2>
-        <a href="portfolio.html" class="text-xs text-theme-cyan hover:underline font-medium">View All Videos →</a>
+      <div class="flex items-center justify-between mb-6 pb-2 border-b border-slate-200 dark:border-slate-800">
+        <h2 class="text-base font-bold text-slate-900 dark:text-white tracking-wide" data-i18n="sec-portfolio">Portfolio Preview</h2>
+        <a href="portfolio.html" class="text-xs text-cyan-600 dark:text-cyan-400 hover:underline font-medium">View All Videos →</a>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-        <div class="rounded-xl border border-theme-border bg-theme-card overflow-hidden group hover:border-theme-cyan transition">
+        <div class="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#121824] overflow-hidden group hover:border-cyan-500 transition shadow-sm">
           <div class="relative aspect-video bg-black cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
             <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-85 group-hover:opacity-100" alt="Video">
             <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-              <div class="w-11 h-11 rounded-full bg-theme-cyan text-black flex items-center justify-center group-hover:scale-110 transition shadow">
+              <div class="w-11 h-11 rounded-full bg-cyan-500 text-black flex items-center justify-center group-hover:scale-110 transition shadow">
                 <i data-lucide="play" class="w-5 h-5 fill-current ml-0.5"></i>
               </div>
             </div>
-            <span class="absolute top-2 right-2 bg-black/80 text-theme-cyan text-[10px] font-bold px-2 py-0.5 rounded">Runway Gen-3</span>
+            <span class="absolute top-2 right-2 bg-black/80 text-cyan-400 text-[10px] font-bold px-2 py-0.5 rounded">Runway Gen-3</span>
           </div>
           <div class="p-3.5">
-            <h3 class="text-sm font-bold text-white mb-1" data-i18n="video-1-title">Neo-Tokyo Cyberpunk 2099</h3>
-            <p class="text-xs text-slate-400" data-i18n="video-1-desc">Fast camera motion with dynamic lighting and reflections.</p>
+            <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-1" data-i18n="video-1-title">Neo-Tokyo Cyberpunk 2099</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400" data-i18n="video-1-desc">Fast camera motion with dynamic lighting and reflections.</p>
           </div>
         </div>
 
-        <div class="rounded-xl border border-theme-border bg-theme-card overflow-hidden group hover:border-theme-cyan transition">
+        <div class="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#121824] overflow-hidden group hover:border-cyan-500 transition shadow-sm">
           <div class="relative aspect-video bg-black cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
             <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-85 group-hover:opacity-100" alt="Video">
             <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-              <div class="w-11 h-11 rounded-full bg-theme-cyan text-black flex items-center justify-center group-hover:scale-110 transition shadow">
+              <div class="w-11 h-11 rounded-full bg-cyan-500 text-black flex items-center justify-center group-hover:scale-110 transition shadow">
                 <i data-lucide="play" class="w-5 h-5 fill-current ml-0.5"></i>
               </div>
             </div>
             <span class="absolute top-2 right-2 bg-black/80 text-purple-400 text-[10px] font-bold px-2 py-0.5 rounded">Kling AI</span>
           </div>
           <div class="p-3.5">
-            <h3 class="text-sm font-bold text-white mb-1" data-i18n="video-2-title">Deep Space Odyssey</h3>
-            <p class="text-xs text-slate-400" data-i18n="video-2-desc">Cinematic sci-fi sequences integrated with AI sound design.</p>
+            <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-1" data-i18n="video-2-title">Deep Space Odyssey</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400" data-i18n="video-2-desc">Cinematic sci-fi sequences integrated with AI sound design.</p>
           </div>
         </div>
 
-        <div class="rounded-xl border border-theme-border bg-theme-card overflow-hidden group hover:border-theme-cyan transition">
+        <div class="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#121824] overflow-hidden group hover:border-cyan-500 transition shadow-sm">
           <div class="relative aspect-video bg-black cursor-pointer" onclick="openVideoModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">
             <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-85 group-hover:opacity-100" alt="Video">
             <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-              <div class="w-11 h-11 rounded-full bg-theme-cyan text-black flex items-center justify-center group-hover:scale-110 transition shadow">
+              <div class="w-11 h-11 rounded-full bg-cyan-500 text-black flex items-center justify-center group-hover:scale-110 transition shadow">
                 <i data-lucide="play" class="w-5 h-5 fill-current ml-0.5"></i>
               </div>
             </div>
             <span class="absolute top-2 right-2 bg-black/80 text-emerald-400 text-[10px] font-bold px-2 py-0.5 rounded">Luma Dream</span>
           </div>
           <div class="p-3.5">
-            <h3 class="text-sm font-bold text-white mb-1" data-i18n="video-3-title">Ancient Chronicles</h3>
-            <p class="text-xs text-slate-400" data-i18n="video-3-desc">Realistic facial motion and historical character reenactment.</p>
+            <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-1" data-i18n="video-3-title">Ancient Chronicles</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400" data-i18n="video-3-desc">Realistic facial motion and historical character reenactment.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- AI Tools Section -->
+    <!-- AI Tools Preview -->
     <section class="mb-14">
-      <div class="flex items-center justify-between mb-6 pb-2 border-b border-theme-border">
-        <h2 class="text-base font-bold text-white tracking-wide" data-i18n="sec-tools">AI Tools Directory</h2>
-        <a href="tools.html" class="text-xs text-theme-cyan hover:underline font-medium">Browse All Tools →</a>
+      <div class="flex items-center justify-between mb-6 pb-2 border-b border-slate-200 dark:border-slate-800">
+        <h2 class="text-base font-bold text-slate-900 dark:text-white tracking-wide" data-i18n="sec-tools">AI Tools Directory</h2>
+        <a href="tools.html" class="text-xs text-cyan-600 dark:text-cyan-400 hover:underline font-medium">Browse All Tools →</a>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <a href="https://runwayml.com" target="_blank" class="p-4 rounded-xl border border-theme-border bg-theme-card hover:border-theme-cyan transition block group">
-          <div class="w-9 h-9 rounded-lg bg-theme-cyan/10 text-theme-cyan flex items-center justify-center mb-3">
+        <a href="https://runwayml.com" target="_blank" class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#121824] hover:border-cyan-500 transition block group shadow-sm">
+          <div class="w-9 h-9 rounded-lg bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center mb-3">
             <i data-lucide="video" class="w-5 h-5"></i>
           </div>
-          <h3 class="text-sm font-bold text-white mb-1">Runway Gen-3</h3>
-          <p class="text-xs text-slate-400 leading-relaxed" data-i18n="tool-1-desc">The industry standard for cinematic AI video generation.</p>
+          <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-1">Runway Gen-3</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed" data-i18n="tool-1-desc">The industry standard for cinematic AI video generation.</p>
         </a>
 
-        <a href="https://midjourney.com" target="_blank" class="p-4 rounded-xl border border-theme-border bg-theme-card hover:border-purple-400 transition block group">
-          <div class="w-9 h-9 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center mb-3">
+        <a href="https://midjourney.com" target="_blank" class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#121824] hover:border-purple-500 transition block group shadow-sm">
+          <div class="w-9 h-9 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-3">
             <i data-lucide="image" class="w-5 h-5"></i>
           </div>
-          <h3 class="text-sm font-bold text-white mb-1">Midjourney v6</h3>
-          <p class="text-xs text-slate-400 leading-relaxed" data-i18n="tool-2-desc">Superior photorealistic image synthesis and art design.</p>
+          <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-1">Midjourney v6</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed" data-i18n="tool-2-desc">Superior photorealistic image synthesis and art design.</p>
         </a>
 
-        <a href="https://elevenlabs.io" target="_blank" class="p-4 rounded-xl border border-theme-border bg-theme-card hover:border-emerald-400 transition block group">
-          <div class="w-9 h-9 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-3">
+        <a href="https://elevenlabs.io" target="_blank" class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#121824] hover:border-emerald-500 transition block group shadow-sm">
+          <div class="w-9 h-9 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3">
             <i data-lucide="mic" class="w-5 h-5"></i>
           </div>
-          <h3 class="text-sm font-bold text-white mb-1">ElevenLabs</h3>
-          <p class="text-xs text-slate-400 leading-relaxed" data-i18n="tool-3-desc">Lifelike emotional voice generation and multilingual dubbing.</p>
+          <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-1">ElevenLabs</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed" data-i18n="tool-3-desc">Lifelike emotional voice generation and multilingual dubbing.</p>
         </a>
 
-        <a href="https://suno.com" target="_blank" class="p-4 rounded-xl border border-theme-border bg-theme-card hover:border-blue-400 transition block group">
-          <div class="w-9 h-9 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center mb-3">
+        <a href="https://suno.com" target="_blank" class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#121824] hover:border-blue-500 transition block group shadow-sm">
+          <div class="w-9 h-9 rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-3">
             <i data-lucide="music" class="w-5 h-5"></i>
           </div>
-          <h3 class="text-sm font-bold text-white mb-1">Suno AI</h3>
-          <p class="text-xs text-slate-400 leading-relaxed" data-i18n="tool-4-desc">Full composition background scores matching video themes.</p>
+          <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-1">Suno AI</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed" data-i18n="tool-4-desc">Full composition background scores matching video themes.</p>
         </a>
       </div>
     </section>
 
   </main>
 
-  <!-- Video Modal Player -->
+  <!-- Video Modal -->
   <div id="videoModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="relative w-full max-w-4xl bg-black rounded-xl overflow-hidden border border-theme-border shadow-2xl">
+    <div class="relative w-full max-w-4xl bg-black rounded-xl overflow-hidden border border-slate-800 shadow-2xl">
       <button onclick="closeVideoModal()" class="absolute top-4 left-4 z-10 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition" aria-label="Close">
         <i data-lucide="x" class="w-4 h-4"></i>
       </button>
@@ -311,23 +317,25 @@
   </div>
 
   <!-- Footer -->
-  <footer class="border-t border-theme-border bg-[#090D13] py-8 px-5 text-xs text-slate-400">
+  <footer class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-[#090D13] py-8 px-5 text-xs text-slate-500 transition-colors duration-300">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
       <div>
-        <span class="font-bold text-white">Trendat<span class="text-theme-cyan">AI</span></span>
+        <span class="font-bold text-slate-900 dark:text-white">Trendat<span class="text-cyan-500">AI</span></span>
         <span>— © 2026 Hosted on GitHub Pages.</span>
       </div>
       <div class="flex items-center gap-5">
-        <a href="portfolio.html" class="hover:text-white transition">Portfolio</a>
-        <a href="articles.html" class="hover:text-white transition">Articles</a>
-        <a href="tools.html" class="hover:text-white transition">AI Tools</a>
+        <a href="portfolio.html" class="hover:text-slate-900 dark:hover:text-white transition">Portfolio</a>
+        <a href="articles.html" class="hover:text-slate-900 dark:hover:text-white transition">Articles</a>
+        <a href="tools.html" class="hover:text-slate-900 dark:hover:text-white transition">AI Tools</a>
       </div>
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script>
     lucide.createIcons();
 
+    // 1. التحكم في السلايدر
     function slideCarousel(direction) {
       const slider = document.getElementById('featuredSlider');
       const isRtl = document.documentElement.dir === 'rtl';
@@ -335,6 +343,7 @@
       slider.scrollBy({ left: amount, behavior: 'smooth' });
     }
 
+    // 2. التحكم في نافذة الفيديو
     function openVideoModal(url) {
       const modal = document.getElementById('videoModal');
       const iframe = document.getElementById('videoIframe');
@@ -351,6 +360,39 @@
       modal.classList.remove('flex');
     }
 
+    // 3. التبديل بين الوضع الليلي والساطع (Dark / Light Mode)
+    function toggleTheme() {
+      const html = document.documentElement;
+      const isDark = html.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      updateThemeIcon(isDark);
+    }
+
+    function updateThemeIcon(isDark) {
+      const icon = document.getElementById('themeIcon');
+      if (isDark) {
+        icon.setAttribute('data-lucide', 'sun');
+        icon.classList.remove('text-slate-700');
+        icon.classList.add('text-yellow-400');
+      } else {
+        icon.setAttribute('data-lucide', 'moon');
+        icon.classList.remove('text-yellow-400');
+        icon.classList.add('text-slate-700');
+      }
+      lucide.createIcons();
+    }
+
+    // استرجاع الثيم المفضل للزائر
+    (function initTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      const isDark = savedTheme ? savedTheme === 'dark' : true; // الافتراضي ليلي
+      if (!isDark) {
+        document.documentElement.classList.remove('dark');
+      }
+      updateThemeIcon(isDark);
+    })();
+
+    // 4. القاموس والتبديل اللغوي
     let currentLang = 'en';
 
     const translations = {
