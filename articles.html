@@ -3,11 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>المقالات والدروس | TrendatAI</title>
+  <title>جميع المقالات والدروس | TrendatAI</title>
+  
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
   <script>
     tailwind.config = {
       darkMode: 'class',
@@ -35,7 +40,7 @@
     </div>
   </header>
 
-  <!-- محتوى قائمة المقالات -->
+  <!-- المحتوى الرئيسي -->
   <main class="max-w-7xl mx-auto px-5 py-12 flex-1 w-full">
     <div class="mb-10 pb-4 border-b border-slate-800 flex items-center justify-between">
       <div>
@@ -45,16 +50,40 @@
       <span class="text-xs text-cyan-400 border border-slate-800 px-3 py-1 rounded bg-slate-900">Articles Directory</span>
     </div>
 
-    <!-- شبكة المقالات (مقالك الأول مضاف هنا) -->
+    <!-- شبكة المقالات (مع سحب الغلاف التلقائي من يوتيوب) -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       
-      <!-- كارت مقال الشخصية الافتراضية -->
+      <!-- ======================================================== -->
+      <!-- كارت مقال الشخصية الافتراضية (يسحب الغلاف من يوتيوب مباشرة) -->
+      <!-- ======================================================== -->
       <article class="rounded-2xl border border-slate-800 bg-[#121824] overflow-hidden group hover:border-cyan-500 transition shadow-sm flex flex-col justify-between">
         <div>
           <a href="articles/ai-avatar-motion-graphics.html" class="block aspect-video w-full overflow-hidden bg-black relative">
-            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80" alt="Avatar Guide" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
-            <span class="absolute top-3 right-3 bg-red-600 text-white text-[11px] font-bold px-2.5 py-0.5 rounded shadow">شرح يوتيوب</span>
+            
+            <!-- 
+              السحر هنا:
+              فقط استبدل الرمز YOUR_VIDEO_ID بمعرّف الفيديو الخاص بك على يوتيوب 
+              مثال: إذا كان رابطك https://youtube.com/watch?v=AbCd123 فالرمز هو AbCd123
+            -->
+            <img 
+              src="https://img.youtube.com/vi/xS7nCCUY0W8/maxresdefault.jpg" 
+              onerror="this.onerror=null;this.src='https://img.youtube.com/vi/xS7nCCUY0W8/hqdefault.jpg';" 
+              alt="Avatar Video Thumbnail" 
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-500" 
+            />
+
+            <!-- زر تشغيل مصغر فوق الصورة -->
+            <div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+              <div class="w-12 h-12 rounded-full bg-red-600 text-white flex items-center justify-center shadow-lg font-bold text-lg">
+                ▶
+              </div>
+            </div>
+
+            <span class="absolute top-3 right-3 bg-red-600 text-white text-[11px] font-bold px-2.5 py-0.5 rounded shadow">
+              شرح يوتيوب
+            </span>
           </a>
+
           <div class="p-5">
             <span class="text-[11px] text-cyan-400 font-bold block mb-1.5">Google Flow & Omni Flash</span>
             <h2 class="text-base font-bold text-white leading-snug mb-3 group-hover:text-cyan-400 transition">
@@ -67,9 +96,12 @@
             </p>
           </div>
         </div>
+
         <div class="p-5 pt-0 border-t border-slate-800/60 mt-4 flex items-center justify-between text-xs">
           <span class="text-slate-500">10 دقائق مشاهدة</span>
-          <a href="articles/ai-avatar-motion-graphics.html" class="text-cyan-400 font-bold hover:underline">اقرأ الشرح ←</a>
+          <a href="articles/ai-avatar-motion-graphics.html" class="text-cyan-400 font-bold hover:underline">
+            اقرأ الشرح وشاهد الفيديو ←
+          </a>
         </div>
       </article>
 
