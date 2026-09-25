@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth antialiased dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>صناعة شخصية افتراضية متكلمة مع موشن جرافيك بالذكاء الاصطناعي | TrendatAI</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Fonts: IBM Plex Sans Arabic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"IBM Plex Sans Arabic"', '"IBM Plex Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-[#0B0F17] dark:text-[#E2E8F0] min-h-screen flex flex-col justify-between transition-colors duration-300">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-white/95 dark:bg-[#0B0F17]/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-4xl mx-auto px-5 h-16 flex items-center justify-between gap-4">
+      <a href="../index.html" class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-cyan-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm">T</div>
+        <span class="font-bold text-base text-slate-900 dark:text-white">Trendat<span class="text-cyan-500">AI</span></span>
+      </a>
+      
+      <a href="../index.html" class="text-xs px-3.5 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-cyan-500 flex items-center gap-1.5 transition">
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        <span>العودة للرئيسية</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- محتوى المقال والفيديو -->
+  <main class="max-w-4xl mx-auto px-5 py-10 flex-1 w-full">
+    
+    <!-- وسوم وبيانات المقال -->
+    <div class="flex items-center gap-3 text-xs mb-4">
+      <span class="bg-red-500/10 text-red-500 font-bold px-2.5 py-0.5 rounded border border-red-500/20 flex items-center gap-1">
+        <i data-lucide="youtube" class="w-3.5 h-3.5"></i> شرح عملي بالفيديو
+      </span>
+      <span class="text-slate-400">•</span>
+      <span class="text-slate-400">Google Flow & Omni Flash</span>
+      <span class="text-slate-400">•</span>
+      <span class="text-cyan-500 font-medium">موشن جرافيك + Lip-Sync</span>
+    </div>
+
+    <!-- عنوان المقال -->
+    <h1 class="text-2xl sm:text-4xl font-bold text-slate-900 dark:text-white leading-tight mb-6">
+      كيف تصنع شخصية افتراضية تتحدث بصوتك مع حركة شفايف دقيقة وعناصر موشن جرافيك تفاعلية
+    </h1>
+
+    <!-- مشغل الفيديو -->
+    <div class="aspect-video w-full rounded-2xl overflow-hidden mb-8 border border-slate-200 dark:border-slate-800 bg-black shadow-xl">
+      <!-- استبدل الرابط برابط الفيديو الخاص بك على قناتك -->
+      <iframe class="w-full h-full" src="https://www.youtube.com/embed/AbCd1234XYZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <!-- بطاقة الاشتراك في القناة -->
+    <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#121824] flex flex-col sm:flex-row items-center justify-between gap-4 mb-10 shadow-sm">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center shrink-0">
+          <i data-lucide="play" class="w-5 h-5 fill-current"></i>
+        </div>
+        <div>
+          <h4 class="text-sm font-bold text-slate-900 dark:text-white">شاهد المزيد من الدروس الحصرية</h4>
+          <p class="text-xs text-slate-400">اشترك في قناة TrendatAI على اليوتيوب ليصلك كل جديد في عالم الـ AI.</p>
+        </div>
+      </div>
+      <a href="https://youtube.com/@TrendatAI" target="_blank" class="px-4 py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white font-bold text-xs flex items-center gap-2 transition shrink-0">
+        <i data-lucide="bell" class="w-3.5 h-3.5"></i>
+        <span>اشتراك في القناة</span>
+      </a>
+    </div>
+
+    <!-- تفاصيل الشرح العملي -->
+    <article class="space-y-6 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed border-b border-slate-200 dark:border-slate-800 pb-10">
+      
+      <p>
+        تخيل أن تنشئ شخصية افتراضية (Avatar) تتحدث بنبرة صوتك، مع تطابق كامل لحركة الشفاه (Lip-Sync) لكل كلمة باللغة العربية، وتتفاعل في نفس الوقت مع عناصر <strong>موشن جرافيك (Motion Graphics)</strong> تظهر حولها بسلاسة وطبيعية، دون الحاجة للوقوف أمام الكاميرا في كل مرة!
+      </p>
+
+      <h2 class="text-xl font-bold text-slate-900 dark:text-white pt-2">الأدوات المستخدمة في هذا الدليل:</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-4">
+        <div class="p-3 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-black/40">
+          <span class="font-bold text-cyan-500 block text-xs">منصة الإنتاج:</span>
+          <span class="text-sm font-semibold text-slate-900 dark:text-white">Google Flow (Omni Flash Model)</span>
+        </div>
+        <div class="p-3 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-black/40">
+          <span class="font-bold text-purple-500 block text-xs">الصوت والتفريغ:</span>
+          <span class="text-sm font-semibold text-slate-900 dark:text-white">Google AI Studio & Gemini Flash</span>
+        </div>
+        <div class="p-3 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-black/40">
+          <span class="font-bold text-emerald-500 block text-xs">تجهيز المقاطع:</span>
+          <span class="text-sm font-semibold text-slate-900 dark:text-white">CapCut (أو أي برنامج مونتاج)</span>
+        </div>
+        <div class="p-3 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-black/40">
+          <span class="font-bold text-blue-500 block text-xs">النموذج الذكي:</span>
+          <span class="text-sm font-semibold text-slate-900 dark:text-white">Google Flow Agent Mode</span>
+        </div>
+      </div>
+
+      <h2 class="text-xl font-bold text-slate-900 dark:text-white pt-2">خطوات العمل بالتفصيل:</h2>
+
+      <h3 class="text-base font-bold text-cyan-600 dark:text-cyan-400">1. بناء وتثبيت هوية الشخصية (Character Consistency)</h3>
+      <p>
+        قم بالدخول على <strong>Google Flow</strong> وأنشئ مشروعاً جديداً. قم بتوليد صورة الشخصية داخل استوديو مناسب لمحتواك (مثل استوديو يوتيوب تقني) مع ثبات زاوية الكاميرا والإضاءة لضمان استقرار الهوية البصرية.
+      </p>
+
+      <h3 class="text-base font-bold text-cyan-600 dark:text-cyan-400">2. تسجيل وتجهيز الصوت</h3>
+      <p>
+        سجل صوتك بنبرتك الطبيعية، أو استخدم نموذج <strong>Gemini TTS</strong> في Google AI Studio إذا أردت توليد صوت ذكاء اصطناعي احترافي باللهجة المصرية أو الفصحى.
+      </p>
+
+      <h3 class="text-base font-bold text-cyan-600 dark:text-cyan-400">3. قاعدة الـ 10 ثوانٍ في برنامج المونتاج (سر النجاح)</h3>
+      <p>
+        داخل برنامج المونتاج (مثل CapCut)، ضع المقطع الصوتي وقسمه إلى أجزاء مدة كل جزء <strong>10 ثوانٍ تقريباً</strong> (عند نهاية كل جملة مكتملة). اسحب صورة الشخصية الثابتة وضعها فوق مقطع الصوت، وقم بتصدير كل مقطع كفيديو مرجعي (Reference Video).
+      </p>
+
+      <h3 class="text-base font-bold text-cyan-600 dark:text-cyan-400">4. تفريغ الصوت إلى نص بدقة عبر Gemini</h3>
+      <p>
+        ارفع المقطع الصوتي إلى <strong>Gemini</strong> لتحويل الكلام إلى نص مكتوب بالحرف؛ لأننا سنحتاج هذا النص داخل البرومبت لمطابقة حركة الشفاه بدقة 100%.
+      </p>
+
+      <!-- صندوق البرومبت المستخدم في الفيديو -->
+      <h2 class="text-xl font-bold text-slate-900 dark:text-white pt-4">البرومبت السحري المعتمد في الفيديو (جاهز للنسخ):</h2>
+      <p class="text-xs text-slate-400">
+        قم بتفعيل <strong>Agent Mode</strong> في Google Flow، وارفع مقطع الـ 10 ثوانٍ للشات، ثم الصق هذا البرومبت مع استبدال النص العربي بين علامات التنصيص بالنص المفرغ من مقطعك:
+      </p>
+
+      <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-black relative group">
+        <span class="text-[11px] font-bold text-cyan-500 mb-2 block font-mono">Omni Flash Agent Prompt:</span>
+        <pre class="text-xs font-mono text-slate-800 dark:text-slate-200 leading-relaxed select-all whitespace-pre-wrap" dir="ltr">Edit the attached video while preserving the exact appearance and voice of the character.
+Present the character as an Egyptian male YouTuber speaking directly to the camera in Egyptian Arabic.
+The character says:
+"[ضع هنا النص الذي تم تفريغه من الصوت بالحرف]"
+
+Preserve the existing original voice and make the Arabic lip-sync clear, accurate, and naturally synchronized with the dialogue.
+
+I want the video in an attractive and professional style. During the character's speech, many varied motion-graphics elements appear around him that are related to and express what he is saying without overcrowding the scene, such as:
+Attractively animated text, large keywords, icons, UI interfaces, callouts, and modern transitions.
+
+The character moves naturally while speaking, with clear Arabic lip-sync, direct eye contact with the viewer, and light and expressive hand gestures.
+
+IMPORTANT:
+- Preserve the exact same character without changing his appearance.
+- Preserve the original background, overall composition, and visual identity of the scene.
+- The main visual appeal should come from the motion graphics and animated visual elements.
+- Do not add any music. Use only subtle sound effects.
+- Make sure all visual elements are precisely synchronized with the dialogue.
+- Use visual elements and icons that are relevant to the content. Real logos or brands may be used when appropriate.
+- Keep the motion graphics professional, clean, and visually engaging.
+- Do not add unnecessary elements or overcrowd the scene.
+- The character must remain the main focus of the video at all times.
+- Do not add, replace, regenerate, or modify the original voice.</pre>
+      </div>
+
+      <h2 class="text-xl font-bold text-slate-900 dark:text-white pt-2">النتيجة النهائية:</h2>
+      <p>
+        خلال ثوانٍ، سيقوم موديل <strong>Omni Flash</strong> بتحريك ملامح الشخصية ونطق الكلام ومزامنة الشفاه، مع إظهار أيقونات ومؤثرات موشن جرافيك وشاشات كود تفاعلية تدعم سياق الكلام، مما يحول الفيديو إلى عمل إخراجي يبدو وكأنه نُفّذ بواسطة خبير مونتاج وموشن جرافيك محترف!
+      </p>
+
+    </article>
+
+    <!-- روابط التنقل السفلية -->
+    <div class="pt-8 flex items-center justify-between text-xs text-slate-400">
+      <a href="../articles.html" class="hover:text-cyan-500 transition flex items-center gap-1.5">
+        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+        <span>تصفح كل المقالات</span>
+      </a>
+      <span>TrendatAI © 2026</span>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-[#090D13] py-6 px-5 text-center text-xs text-slate-500">
+    جميع الحقوق محفوظة © TrendatAI - مدعوم عبر GitHub Pages
+  </footer>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>
